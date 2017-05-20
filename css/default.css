@@ -21,6 +21,22 @@ main {
 }
 
 /*
+**  Links styling
+*/
+
+main#content a,
+main#content a:visited {
+  color: #39F;
+  text-decoration: none;
+  border: 1px solid #AAA;
+  background-color: #EEE;
+  border-radius: 2px;
+  padding: 3px;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/*
 **  Titles styling
 */
 
