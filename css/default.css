@@ -107,6 +107,21 @@ code {
 }
 
 /*
+**  Information style
+*/
+
+.info:before {
+  content: "ℹ";
+  height: 1em;
+  width: 1em;
+  margin: 3px 0;
+  padding: 2px;
+  display: inline-block;
+  border: 1px solid #AAA;
+  border-radius: 50%;
+}
+
+/*
 **  Pandoc-generated syntax highlight
 */
 
