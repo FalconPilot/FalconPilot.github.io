@@ -63,6 +63,7 @@ main {
 
 /* Footer */
 footer {
+  height: 2em; /* For older browsers */
   height: calc(1em + 20px);
   font-size: 1em;
 }
@@ -119,6 +120,7 @@ code {
 */
 
 .info {
+  line-height: var(--info-height); /* For older browsers */
   line-height: calc(var(--info-height) + 4px);
 }
 
