@@ -15,5 +15,5 @@ header, main, footer {
 
 main {
   flex: 1;
-  padding: 20% 5px;
+  padding: 5px 20%;
 }
