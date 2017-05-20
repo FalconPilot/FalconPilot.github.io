@@ -119,6 +119,7 @@ code {
   display: inline-block;
   border: 1px solid #AAA;
   border-radius: 50%;
+  text-align: center;
 }
 
 /*
