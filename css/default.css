@@ -22,7 +22,7 @@ a, a:visited {
 .vr-line {
   margin: 0 5px;
   align-self: stretch;
-  border-left: 2px solid #AAA;
+  border-left: 1px solid #AAA;
 }
 
 /*
