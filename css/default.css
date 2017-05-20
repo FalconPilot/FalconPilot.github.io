@@ -16,6 +16,15 @@ a, a:visited {
 }
 
 /*
+**  Separators
+*/
+
+.vr-line {
+  align-self: stretch;
+  border-left: 1px solid #AAA;
+}
+
+/*
 **  Structural classes
 */
 
