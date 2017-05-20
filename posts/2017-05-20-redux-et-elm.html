@@ -40,8 +40,9 @@
 <p>Une introduction à la Elm Architecture peut être intéressante pour ceux qui ignorent totalement son fonctionnement. Il existe déjà des tas d’articles passionnants et simples permettant de comprendre son principe, ainsi qu’un <a href="https://www.youtube.com/watch?v=rVZRCXutfng">talk donné à LilleFP fin Février</a> par moi-même et <a href="https://github.com/xvw">xvw</a> pour introduire le langage de façon simple et concise (hou, la vilaine auto-promotion !).</p>
 <h2 id="redux-concrètement-cest-quoi">Redux, concrètement, c’est quoi ?</h2>
 <p>Dans les faits, Redux est un conteneur pour applications Javascript reprenant des idées popularisées par Elm pour rendre bien plus évident le développement de projets à grande échelle en Javascript. Bien qu’il soit très souvent utilisé avec ReactJS, il est utilisable avec n’importe-quelle autre bibliothèque dans la théorie.</p>
+<p>Pour une question de clareté, cependant, l’article utilisera le binding React-Redux pour avoir une base commune et éprouvée.</p>
 <h2 id="update-dans-elm-et-react-redux">Update dans Elm et React-Redux</h2>
-<p>Elm et Redux étant très différents, je vais essayer de présenter des exemples de code dans ces deux langages pour bien exprimer la différence entre ceux-ci.</p>
+<p>Elm et React-Redux étant très différents, je vais essayer de présenter des exemples de code dans ces deux langages pour bien exprimer la différence entre ceux-ci.</p>
 <p>La fonction de mise à jour du modèle, en Elm, ressemblera en général à ceci (sans inférence de type)</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">type</span> <span class="dt">Msg</span>
 	<span class="fu">=</span> <span class="dt">Increment</span>
@@ -73,11 +74,31 @@ update msg model <span class="fu">=</span>
 <p>On peut voir une énorme ressemblance au niveau de la structure : une fonction, prenant d’abord un message (ou une “action”, avec Redux), puis un modèle (ou un “état” avec Redux). Le message définira comment le modèle devra être modifié puis renvoyé.</p>
 <p>Un point d’honneur des deux langages (ainsi que de React, d’ailleurs) est de prôner l’immutabilité des données, ce qui est, de mon point de vue, une très bonne pratique. Avoir des données immutables est bien plus sûr au niveau du code et bien plus propre.</p>
 <p>Seulement, vient un des points capitaux qui peut avantager Elm : toutes les erreurs d’un programme Elm seront annoncées à la compilation. Ainsi, avec Redux, envoyer un message invalide (ici, imaginons qu’un utilisateur envoie un message <code>COUCOU</code> à l’update, dans Elm, la compilation échouera pour notifier l’utilisateur de son erreur, dans Redux, il se contentera d’exécuter du code par défaut au runtime - dans notre exemple, renvoyer l’état non modifié). Cela ne condamne pas Redux pour autant, mais c’est une divergence importante pour comprendre les limitations éventuelles qu’un écosystème Javascript peut avoir lorsqu’il s’inspire d’une technologie statiquement typée. Pour autant, Redux n’est pas à jeter pour autant.</p>
+<h2 id="générer-une-vue-jsx-et-elm">Générer une vue : JSX et Elm</h2>
+<p>La génération d’une vue est également très différente. En Elm, on optera pour une syntaxe proche du langage d’origine, tandis qu’avec React-Redux, on peut tout simplement utiliser JSX. Un exemple en code, d’abord en Elm…</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">view<span class="fu">:</span> <span class="dt">Model</span> <span class="ot">-&gt;</span> <span class="dt">Html</span> <span class="dt">Msg</span>
+view model <span class="fu">=</span>
+	div [ id <span class="st">&quot;content&quot;</span> ]
+		[ h1 [] [ model<span class="fu">.</span>title ]
+		, p [] [ <span class="st">&quot;I &lt;3 Elm&quot;</span> ]
+		]</code></pre></div>
+<p>Puis l’équivalent avec JSX</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">render <span class="op">{</span>
+  <span class="cf">return</span> (
+    <span class="op">&lt;</span>div id<span class="op">=</span><span class="st">&quot;content&quot;</span><span class="op">&gt;</span>
+    	<span class="op">&lt;</span>h1<span class="op">&gt;{</span><span class="kw">this</span>.<span class="va">state</span>.<span class="at">title</span><span class="op">}&lt;</span><span class="ss">/h1&gt;</span>
+<span class="ss">    	&lt;p&gt;I &lt;3 Elm&lt;/p</span><span class="op">&gt;</span>
+    <span class="op">&lt;</span><span class="ss">/div&gt;</span>
+<span class="ss">  </span><span class="sc">)</span><span class="ss">;</span>
+<span class="ss">}</span></code></pre></div>
+<p>On se rend compte que JSX permet d’avoir une syntaxe de markup plus proche de celle du HTML. Ici, on pourrait croire à une grande différence, mais en réalité, il s’agit du même fonctionnement : chaque balise est une fonction prenant une certaine quantité de paramètres. La différence principale vient de la méthodologie employée : avec JSX, on passe tous ses paramères de la même façon qu’en HTML. Avec Elm, on soumet deux listes à la fonction, la première représentant les attributs et la seconde les noeuds enfants de l’élément.</p>
+<p>Ainsi React-Redux, pouvant profiter de JSX, permet d’avoir une syntaxe avec laquelle les développeurs seront déjà habitués, ce qui peut être un avantage pour React-Redux.</p>
 <h2 id="redux-a-t-il-des-points-forts">Redux a-t-il des points forts ?</h2>
 <p>En outre, la réponse est “oui”. Tout d’abord, la centralisation des données rend bien plus simple l’organisation d’un grand projet en Javascript sans avoir à se poser de question quand au scope des actions entreprises. Son binding avec ReactJS est parfait en terme d’homogénéité et peut apporter un vrai plus en terme d’organisation et de logique de projet.</p>
 <p>Également, Redux est léger. Dépendances inclues, il ne pèse que 2ko (selon les dires de ses créateurs, en tout cas), ce qui est, on peut le dire, plus que raisonnable. En prenant en compte les craintes de certains développeurs sur le poids final de certains projets Javascript, un framework aussi léger est plutôt rassurant.</p>
+<p>L’inspiration de la Elm Architecture est un point très positif pour Redux, cette dernière reposant sur des concepts et principes solides de la programmation fonctionnelle encourageant (voire forçant) à l’emploi de bonnes pratiques.</p>
 <h2 id="oui-mais">Oui, mais…</h2>
-<p>N’oublions pas que Redux s’inspire de la Elm Architecture qui vient avec son propre langage, Elm. Ainsi parfois, les limites de Redux peuvent se sentir. Notamment, l’absence de typage statique en Javascript est un énorme manque à ce modèle de données. Ainsi un des points forts du langage, à savoir la garantie d’absence d’erreur au runtime en dehors des effets de bord sous réserve que le programme compile, disparait complètement avec Redux.</p>
+<p>N’oublions pas que Redux s’inspire de la Elm Architecture qui vient avec son propre langage, Elm. Ainsi parfois, les limites de Redux peuvent se sentir. Notamment, l’absence de typage statique en Javascript est un énorme manque à ce modèle de données. En outre l’un des points forts du langage, à savoir la garantie d’absence d’erreur au runtime en dehors des effets de bord sous réserve que le programme compile, disparait complètement avec Redux.</p>
 <p>Également, Redux reste destiné, selon moi, à des projets de grande envergure. Son implémentation le rend beaucoup trop overkill pour une utilisation dans de plus petits projets, qui ne feront que gagner en complexité sans grande nécessité. Avec React-Redux, je ne peux que recommander Flux pour ce genre de petit projet sans un grand besoin d’accessibilité à un scope complexe et profond.</p>
 <h2 id="en-résumé-les-points-forts">En résumé, les points forts…</h2>
 <ul>
@@ -89,9 +110,9 @@ update msg model <span class="fu">=</span>
 </ul>
 <h2 id="mais-aussi-les-points-faibles">… mais aussi les points faibles</h2>
 <ul>
-<li>Réellement pertinent sur des projets à grand scope, trop complexe pour réellement profiter à de plus petits projets</li>
-<li>Absence de typage statique dans l’architecture (même si ce défaut est lié à Javascript, et non à Redux, on peut en souffrir dans Redux)</li>
-<li>Peu d’usages en dehors de ReactJS (<a href="https://github.com/markerikson/react-redux-links/blob/master/redux-without-react.md">certaines personnes ont bien fait des bindings avec d’autres bibliothèques</a>, mais l’usage le plus majoritaire est, de façon écrasante, ReactJS)</li>
+<li>Réellement pertinent sur des projets à grand scope, trop complexe pour réellement profiter du moindre avantage sur de plus petits projets</li>
+<li>Absence de typage statique dans l’architecture (même si ce défaut est lié à Javascript, et non à Redux, on en souffre quand même)</li>
+<li>Peu d’usages en dehors de ReactJS (<a href="https://github.com/markerikson/react-redux-links/blob/master/redux-without-react.md">certaines personnes ont fait des bindings avec d’autres bibliothèques</a>, mais l’usage le plus majoritaire est, de façon écrasante, ReactJS)</li>
 </ul>
 
     </main>
