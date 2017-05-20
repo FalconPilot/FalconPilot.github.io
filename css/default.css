@@ -114,7 +114,7 @@ code {
   content: "ℹ";
   height: 1em;
   width: 1em;
-  margin: 3px 0;
+  margin: 0 5px;
   padding: 2px;
   display: inline-flex;
   align-items: center;
