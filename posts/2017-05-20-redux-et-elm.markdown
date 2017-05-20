@@ -20,7 +20,7 @@ Elm et Redux étant très différents, je vais essayer de présenter des exemple
 
 La fonction de mise à jour du modèle, en Elm, ressemblera en général à ceci (sans inférence de type)
 
-```elm
+```haskell
 type Msg
 	= Increment
 	| Decrement
