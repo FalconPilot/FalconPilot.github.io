@@ -39,7 +39,7 @@ update msg model =
 
 Avec React-Redux, voilà à quoi cette même méthode de mise à jour pourrait ressembler.
 
-```react
+```javascript
 function update(state = 0, action) {
 	switch (action.type) {
     	case 'INCREMENT':
