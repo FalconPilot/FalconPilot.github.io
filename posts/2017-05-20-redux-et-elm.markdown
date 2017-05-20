@@ -14,6 +14,52 @@ Une introduction à la Elm Architecture peut être intéressante pour ceux qui i
 
 Dans les faits, Redux est un conteneur pour applications Javascript reprenant des idées popularisées par Elm pour rendre bien plus évident le développement de projets à grande échelle en Javascript. Bien qu'il soit très souvent utilisé avec ReactJS, il est utilisable avec n'importe-quelle autre bibliothèque dans la théorie.
 
+## Comparaison : Elm et React-Redux
+
+Elm et Redux étant très différents, je vais essayer de présenter des exemples de code dans ces deux langages pour bien exprimer la différence entre ceux-ci.
+
+La fonction de mise à jour du modèle, en Elm, ressemblera en général à ceci (sans inférence de type)
+
+```elm
+type Msg
+	= Increment
+	| Decrement
+	| Reset
+
+update: Msg -> Model -> (Model, Msg)
+update msg model =
+	case msg of
+		Increment ->
+			model + 1
+		Decrement ->
+			model - 1
+		Reset ->
+			0
+```
+
+Avec React-Redux, voilà à quoi cette même méthode de mise à jour pourrait ressembler.
+
+```react
+function update(state = 0, action) {
+	switch (action.type) {
+    	case 'INCREMENT':
+      		return state + 1
+    	case 'DECREMENT':
+    		return state - 1
+     	case 'RESET':
+      		return 0
+      	default:
+        	return state
+	}
+}
+```
+
+On peut voir une énorme ressemblance au niveau de la structure : une fonction, prenant d'abord un message (ou une "action", avec Redux), puis un modèle (ou un "état" avec Redux). Le message définira comment le modèle devra être modifié puis renvoyé.
+
+Un point d'honneur des deux langages (ainsi que de React, d'ailleurs) est de prôner l'immutabilité des données, ce qui est, de mon point de vue, une très bonne pratique. Avoir des données immutables est bien plus sûr au niveau du code et bien plus propre.
+
+Seulement, vient un des points capitaux qui peut avantager Elm : toutes les erreurs d'un programme Elm seront annoncées à la compilation. Ainsi, avec Redux, envoyer un message invalide (ici, imaginons qu'un utilisateur envoie un message `COUCOU` à l'update, dans Elm, la compilation échouera pour notifier l'utilisateur de son erreur, dans Redux, il se contentera d'exécuter du code par défaut au runtime - dans notre exemple, renvoyer l'état non modifié). Cela ne condamne pas Redux pour autant, mais c'est une divergence importante pour comprendre les limitations éventuelles qu'un écosystème Javascript peut avoir lorsqu'il s'inspire d'une technologie statiquement typée. Pour autant, Redux n'est pas à jeter pour autant.
+
 ## Redux a-t-il des points forts ?
 
 En outre, la réponse est "oui". Tout d'abord, la centralisation des données rend bien plus simple l'organisation d'un grand projet en Javascript sans avoir à se poser de question quand au scope des actions entreprises. Son binding avec ReactJS est parfait en terme d'homogénéité et peut apporter un vrai plus en terme d'organisation et de logique de projet.
@@ -32,6 +78,7 @@ N'oublions pas que Redux s'inspire de la Elm Architecture qui vient avec son pro
 - Framework très léger
 - Intégration parfaite avec ReactJS
 - Une bonne évolution du framework
+- La communauté Javascript, gigantesque, ainsi qu'un énorme nombre d'utilisateurs
 
 ## ... mais aussi les points faibles
 
