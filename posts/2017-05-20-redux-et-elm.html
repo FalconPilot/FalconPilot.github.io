@@ -40,20 +40,20 @@
 <h2 id="update-dans-elm-et-react-redux">Update dans Elm et React-Redux</h2>
 <p>Elm et Redux étant très différents, je vais essayer de présenter des exemples de code dans ces deux langages pour bien exprimer la différence entre ceux-ci.</p>
 <p>La fonction de mise à jour du modèle, en Elm, ressemblera en général à ceci (sans inférence de type)</p>
-<pre class="elm"><code>type Msg
-	= Increment
-	| Decrement
-	| Reset
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">type</span> <span class="dt">Msg</span>
+	<span class="fu">=</span> <span class="dt">Increment</span>
+	<span class="fu">|</span> <span class="dt">Decrement</span>
+	<span class="fu">|</span> <span class="dt">Reset</span>
 
-update: Msg -&gt; Model -&gt; (Model, Msg)
-update msg model =
-	case msg of
-		Increment -&gt;
-			model + 1
-		Decrement -&gt;
-			model - 1
-		Reset -&gt;
-			0</code></pre>
+update<span class="fu">:</span> <span class="dt">Msg</span> <span class="ot">-&gt;</span> <span class="dt">Model</span> <span class="ot">-&gt;</span> (<span class="dt">Model</span>, <span class="dt">Msg</span>)
+update msg model <span class="fu">=</span>
+	<span class="kw">case</span> msg <span class="kw">of</span>
+		<span class="dt">Increment</span> <span class="ot">-&gt;</span>
+			model <span class="fu">+</span> <span class="dv">1</span>
+		<span class="dt">Decrement</span> <span class="ot">-&gt;</span>
+			model <span class="fu">-</span> <span class="dv">1</span>
+		<span class="dt">Reset</span> <span class="ot">-&gt;</span>
+			<span class="dv">0</span></code></pre></div>
 <p>Avec React-Redux, voilà à quoi cette même méthode de mise à jour pourrait ressembler.</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">update</span>(state <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> action) <span class="op">{</span>
 	<span class="cf">switch</span> (<span class="va">action</span>.<span class="at">type</span>) <span class="op">{</span>
