@@ -24,8 +24,7 @@ main {
 **  Links styling
 */
 
-main#content a,
-main#content a:visited {
+a, a:visited {
   color: #39F;
   text-decoration: none;
 }
