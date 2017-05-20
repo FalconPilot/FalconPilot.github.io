@@ -2,5 +2,6 @@
 title: Contact
 ---
 
-I live in a small hut in the mountains of Kumano Kodō on Kii Hantō and would not
-like to be contacted.
+- Github : [FalconPilot](https://github.com/FalconPilot)
+- E-Mail : fpilot.github@gmail.com
+- Twitter : [FalconPilot333](https://twitter.com/fpilot333)
