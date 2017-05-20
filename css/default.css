@@ -20,8 +20,9 @@ a, a:visited {
 */
 
 .vr-line {
+  margin: 0 5px;
   align-self: stretch;
-  border-left: 1px solid #AAA;
+  border-left: 2px solid #AAA;
 }
 
 /*
@@ -41,6 +42,7 @@ header {
 }
 
 header > a {
+  display: block;
   margin: 0 5px;
 }
 
