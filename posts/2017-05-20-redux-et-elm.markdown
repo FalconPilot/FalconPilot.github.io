@@ -14,7 +14,7 @@ Une introduction à la Elm Architecture peut être intéressante pour ceux qui i
 
 Dans les faits, Redux est un conteneur pour applications Javascript reprenant des idées popularisées par Elm pour rendre bien plus évident le développement de projets à grande échelle en Javascript. Bien qu'il soit très souvent utilisé avec ReactJS, il est utilisable avec n'importe-quelle autre bibliothèque dans la théorie.
 
-## Comparaison : Elm et React-Redux
+## Update dans Elm et React-Redux
 
 Elm et Redux étant très différents, je vais essayer de présenter des exemples de code dans ces deux langages pour bien exprimer la différence entre ceux-ci.
 
