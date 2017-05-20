@@ -51,6 +51,10 @@ main {
   padding: 5px 18%;
 }
 
+footer > img {
+  height: 100%;
+}
+
 /*
 **  Navigation
 */
