@@ -1,4 +1,12 @@
 /*
+**  CSS Variables
+*/
+
+:root {
+  --info-height: 1em;
+}
+
+/*
 **  Global style
 */
 
@@ -110,10 +118,14 @@ code {
 **  Information style
 */
 
+.info {
+  line-height: var(--info-height);
+}
+
 .info:before {
   content: "ℹ";
-  height: 1em;
-  width: 1em;
+  height: var(--info-height);
+  width: var(--info-height);
   margin: 0 5px;
   padding: 2px;
   display: inline-flex;
