@@ -8,7 +8,7 @@ Les créateurs de Redux ne s'en cachent pas, une de leurs sources d'inspiration 
 
 ## Bref aperçu de la Elm Architecture
 
-Une introduction à la Elm Architecture peut être intéressante pour ceux qui ignorent totalement son fonctionnement. Il existe déjà des tas d'articles passionnants et simples permettant de comprendre son principe, ainsi qu'un [talk donné à LilleFP fin Février](https://www.youtube.com/watch?v=rVZRCXutfng) par moi-même et [@xvw](https://github.com/xvw) pour introduire le langage de façon simple et concise (hou, la vilaine auto-promotion !).
+Une introduction à la Elm Architecture peut être intéressante pour ceux qui ignorent totalement son fonctionnement. Il existe déjà des tas d'articles passionnants et simples permettant de comprendre son principe, ainsi qu'un [talk donné à LilleFP fin Février](https://www.youtube.com/watch?v=rVZRCXutfng) par moi-même et [xvw](https://github.com/xvw) pour introduire le langage de façon simple et concise (hou, la vilaine auto-promotion !).
 
 ## Redux, concrètement, c'est quoi ?
 
