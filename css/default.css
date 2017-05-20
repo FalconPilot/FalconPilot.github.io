@@ -34,6 +34,18 @@ a, a:visited {
 }
 
 /*
+**  Logo
+*/
+
+#logo {
+  height: 5em;
+}
+
+#logo > img {
+  height: 100%;
+}
+
+/*
 **  Structural classes
 */
 
@@ -45,6 +57,8 @@ header, main, footer {
 
 /* Header */
 header {
+  height: 3em;
+  font-size: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
