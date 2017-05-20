@@ -10,24 +10,34 @@ body {
   font-family: sans-serif;
 }
 
+a, a:visited {
+  color: #39F;
+  text-decoration: none;
+}
+
+/*
+**  Structural classes
+*/
+
 header, main, footer {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > a {
+  margin: 0 5px;
+}
+
 main {
   flex: 1;
   padding: 5px 18%;
-}
-
-/*
-**  Links styling
-*/
-
-a, a:visited {
-  color: #39F;
-  text-decoration: none;
 }
 
 /*
