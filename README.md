@@ -1,1 +1,1 @@
-# hakyll-blog
+# Blog statique
