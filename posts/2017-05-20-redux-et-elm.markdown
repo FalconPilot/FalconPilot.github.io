@@ -12,7 +12,7 @@ Une introduction à la Elm Architecture peut être intéressante pour ceux qui i
 
 ## Redux, concrètement, c'est quoi ?
 
-Dans les faits, Redux est un conteneur pour applications Javascript reprenant des idées popularisées par Elm pour rendre bien plus évident le développement de projets à grande échelle en Javascript. Bien qu'il soit très souvent utilisé avec ReactJS, il est utilisable avec n'importe-quelle autre librairie dans la théorie.
+Dans les faits, Redux est un conteneur pour applications Javascript reprenant des idées popularisées par Elm pour rendre bien plus évident le développement de projets à grande échelle en Javascript. Bien qu'il soit très souvent utilisé avec ReactJS, il est utilisable avec n'importe-quelle autre bibliothèque dans la théorie.
 
 ## Redux a-t-il des points forts ?
 
@@ -37,4 +37,4 @@ N'oublions pas que Redux s'inspire de la Elm Architecture qui vient avec son pro
 
 - Réellement pertinent sur des projets à grand scope, trop complexe pour réellement profiter à de plus petits projets
 - Absence de typage statique dans l'architecture (même si ce défaut est lié à Javascript, et non à Redux, on peut en souffrir dans Redux)
-- Peu d'usages en dehors de ReactJS ([certaines personnes ont bien fait des bindings avec d'autres librairies](https://github.com/markerikson/react-redux-links/blob/master/redux-without-react.md), mais l'usage le plus majoritaire est, de façon écrasante, ReactJS)
+- Peu d'usages en dehors de ReactJS ([certaines personnes ont bien fait des bindings avec d'autres bibliothèques](https://github.com/markerikson/react-redux-links/blob/master/redux-without-react.md), mais l'usage le plus majoritaire est, de façon écrasante, ReactJS)
