@@ -37,6 +37,39 @@
 <p>Une introduction à la Elm Architecture peut être intéressante pour ceux qui ignorent totalement son fonctionnement. Il existe déjà des tas d’articles passionnants et simples permettant de comprendre son principe, ainsi qu’un <a href="https://www.youtube.com/watch?v=rVZRCXutfng&amp;t=10s&amp;ab_channel=LilleFP">talk donné à LilleFP fin Février</a> par moi-même et <span class="citation">[@xvw]</span>(https://github.com/xvw) pour introduire le langage de façon simple et concise (hou, la vilaine auto-promotion !).</p>
 <h2 id="redux-concrètement-cest-quoi">Redux, concrètement, c’est quoi ?</h2>
 <p>Dans les faits, Redux est un conteneur pour applications Javascript reprenant des idées popularisées par Elm pour rendre bien plus évident le développement de projets à grande échelle en Javascript. Bien qu’il soit très souvent utilisé avec ReactJS, il est utilisable avec n’importe-quelle autre bibliothèque dans la théorie.</p>
+<h2 id="comparaison-elm-et-react-redux">Comparaison : Elm et React-Redux</h2>
+<p>Elm et Redux étant très différents, je vais essayer de présenter des exemples de code dans ces deux langages pour bien exprimer la différence entre ceux-ci.</p>
+<p>La fonction de mise à jour du modèle, en Elm, ressemblera en général à ceci (sans inférence de type)</p>
+<pre class="elm"><code>type Msg
+	= Increment
+	| Decrement
+	| Reset
+
+update: Msg -&gt; Model -&gt; (Model, Msg)
+update msg model =
+	case msg of
+		Increment -&gt;
+			model + 1
+		Decrement -&gt;
+			model - 1
+		Reset -&gt;
+			0</code></pre>
+<p>Avec React-Redux, voilà à quoi cette même méthode de mise à jour pourrait ressembler.</p>
+<pre class="react"><code>function update(state = 0, action) {
+	switch (action.type) {
+    	case 'INCREMENT':
+      		return state + 1
+    	case 'DECREMENT':
+    		return state - 1
+     	case 'RESET':
+      		return 0
+      	default:
+        	return state
+	}
+}</code></pre>
+<p>On peut voir une énorme ressemblance au niveau de la structure : une fonction, prenant d’abord un message (ou une “action”, avec Redux), puis un modèle (ou un “état” avec Redux). Le message définira comment le modèle devra être modifié puis renvoyé.</p>
+<p>Un point d’honneur des deux langages (ainsi que de React, d’ailleurs) est de prôner l’immutabilité des données, ce qui est, de mon point de vue, une très bonne pratique. Avoir des données immutables est bien plus sûr au niveau du code et bien plus propre.</p>
+<p>Seulement, vient un des points capitaux qui peut avantager Elm : toutes les erreurs d’un programme Elm seront annoncées à la compilation. Ainsi, avec Redux, envoyer un message invalide (ici, imaginons qu’un utilisateur envoie un message <code>COUCOU</code> à l’update, dans Elm, la compilation échouera pour notifier l’utilisateur de son erreur, dans Redux, il se contentera d’exécuter du code par défaut au runtime - dans notre exemple, renvoyer l’état non modifié). Cela ne condamne pas Redux pour autant, mais c’est une divergence importante pour comprendre les limitations éventuelles qu’un écosystème Javascript peut avoir lorsqu’il s’inspire d’une technologie statiquement typée. Pour autant, Redux n’est pas à jeter pour autant.</p>
 <h2 id="redux-a-t-il-des-points-forts">Redux a-t-il des points forts ?</h2>
 <p>En outre, la réponse est “oui”. Tout d’abord, la centralisation des données rend bien plus simple l’organisation d’un grand projet en Javascript sans avoir à se poser de question quand au scope des actions entreprises. Son binding avec ReactJS est parfait en terme d’homogénéité et peut apporter un vrai plus en terme d’organisation et de logique de projet.</p>
 <p>Également, Redux est léger. Dépendances inclues, il ne pèse que 2ko (selon les dires de ses créateurs, en tout cas), ce qui est, on peut le dire, plus que raisonnable. En prenant en compte les craintes de certains développeurs sur le poids final de certains projets Javascript, un framework aussi léger est plutôt rassurant.</p>
@@ -49,6 +82,7 @@
 <li>Framework très léger</li>
 <li>Intégration parfaite avec ReactJS</li>
 <li>Une bonne évolution du framework</li>
+<li>La communauté Javascript, gigantesque, ainsi qu’un énorme nombre d’utilisateurs</li>
 </ul>
 <h2 id="mais-aussi-les-points-faibles">… mais aussi les points faibles</h2>
 <ul>
