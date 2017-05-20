@@ -119,7 +119,7 @@ code {
 */
 
 .info {
-  line-height: var(--info-height);
+  line-height: calc(var(--info-height) + 4px);
 }
 
 .info:before {
