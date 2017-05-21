@@ -2,7 +2,7 @@
 title: Redux et Elm, une bonne inspiration ?
 ---
 
-## Redux et Elm, une bonne inspiration ?
+![](/images/banner_elm_redux.png)
 
 Les créateurs de Redux ne s'en cachent pas, une de leurs sources d'inspiration nette et visible est la Elm Architecture. On y retrouve des points communs flagrants et prometteurs : des données centralisées, un design modulaire et un cycle d'update pour chaque composant par le biais de messages. Seulement, une question me vient alors à l'esprit : est-ce que les résultats suivent ? Après tout, Elm est une technologie statiquement typée inspirée des familles de langages ML, tandis que Redux voit son utilisation principale se faire via React-Redux, un binding pour ReactJS. Les deux univers sont donc assez distants, et on peut être en droit de se demander si un tel portage est possible. Je ne prétend pas avoir de réponse définitive, mais voici mon avis sur le sujet.
 

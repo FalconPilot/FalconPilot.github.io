@@ -144,7 +144,20 @@ pre > code {
 }
 
 /*
-**  Information style
+**  Article images
+*/
+
+.figure {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure > img { max-width: 100%; }
+
+/*
+**  Infobox
 */
 
 .info {
@@ -162,6 +175,7 @@ pre > code {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-style: normal;
   color: #AAA;
   border: 1px solid #AAA;
   border-radius: 50%;
