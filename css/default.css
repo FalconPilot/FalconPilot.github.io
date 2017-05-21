@@ -105,6 +105,8 @@ main#content > h1 { border-bottom: 1px solid #AAA; }
 
 main#content > h2 { border-bottom: 1px dotted #AAA; }
 
+main#content > p { text-align: justify; }
+
 /*
 **  Codeboxes
 */

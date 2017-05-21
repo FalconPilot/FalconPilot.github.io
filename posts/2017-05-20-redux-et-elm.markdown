@@ -121,3 +121,11 @@ N'oublions pas que Redux s'inspire de la Elm Architecture qui vient avec son pro
 - Réellement pertinent sur des projets à grand scope, trop complexe pour réellement profiter du moindre avantage sur de plus petits projets
 - Absence de typage statique dans l'architecture (même si ce défaut est lié à Javascript, et non à Redux, on en souffre quand même)
 - Peu d'usages en dehors de ReactJS ([certaines personnes ont fait des bindings avec d'autres bibliothèques](https://github.com/markerikson/react-redux-links/blob/master/redux-without-react.md), mais l'usage le plus majoritaire est, de façon écrasante, ReactJS)
+
+## Au final, j'en pense quoi ?
+
+Alors, quid du "vainqueur" : Redux, ou Elm ? La réponse est tout simplement "Personne". Comme de nombreux débats traitant de technologies informatiques, on ne peut pas résoudre toutes les problématiques avec un seul outil universel. Personnellement, ma préférence va à Elm pour mon appréciation des langages fonctionnels statiquement typés, mais un développeur plus investi en Javascript sera plus productif en faisant usage de Redux avec un binding vers son framework préféré. Tout est une question d'expérience, de préférences et, surtout, de cas d'usage.
+
+On peut apprécier l'apport de certaines bonnes pratiques de la programmation fonctionnelle au sein de Redux, tout comme on peut regretter l'absence de certaines qui sont, rappelons-le, principalement du fait de Javascript et non de Redux, tout comme on peut déplorer d'autres choses chez Elm (Mais ça, ce sera probablement le sujet d'un autre article...)
+
+Si j'avais un message unique à faire passer, il serait le suivant : ne raisonnez pas en supériorité universelle, demandez-vous quels outils conviennent le mieux à vos besoins immédiaux et à vos compétences ! N'ayez pas peur de découvrir de nouvelles technologies tous les jours, si vous pensez pouvoir en bénéficier !
