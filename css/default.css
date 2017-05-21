@@ -26,6 +26,7 @@ div#page {
   padding-right: var(--logo-size);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   overflow: auto;
 }
 
