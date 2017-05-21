@@ -130,6 +130,7 @@ code {
 .info {
   line-height: var(--info-height); /* For older browsers */
   line-height: calc(var(--info-height) + 4px);
+  font-style: italic;
 }
 
 .info:before {
@@ -141,7 +142,6 @@ code {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-style: italic;
   color: #AAA;
   border: 1px solid #AAA;
   border-radius: 50%;
