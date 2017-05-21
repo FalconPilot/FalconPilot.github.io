@@ -9,32 +9,35 @@
   </head>
   <!-- BODY -->
   <body>
-    <!-- HEADER -->
-    <header id="header">
-      <!-- LOGO -->
-      <div id="logo">
-        <img src="/images/FP_logo.png"/>
-      </div>
-      <!-- NAVIGATION -->
-      <div id="navigation">
-        <a href="/">Index</a>
-        <div class="vr-line"></div>
-        <a href="/about.html">À propos</a>
-        <div class="vr-line"></div>
-        <a href="/contact.html">Contact</a>
-        <div class="vr-line"></div>
-        <a href="/archive.html">Archives</a>
-      </div>
-    </header>
-    <!-- CONTENT -->
-    <main id="content">
-      <h1>$title$</h1>
-      $body$
-    </main>
-    <!-- FOOTER -->
-    <footer id="footer">
-      Powered by <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
-      <img src="/images/haskell_logo.png"/>
-    </footer>
+    <!-- LOGO -->
+    <div id="logo">
+      <img src="/images/FP_logo.png"/>
+    </div>
+    <!-- MAIN PAGE -->
+    <div id="page">
+      <!-- HEADER -->
+      <header id="header">
+        <!-- NAVIGATION -->
+        <div id="navigation">
+          <a href="/">Index</a>
+          <div class="vr-line"></div>
+          <a href="/about.html">À propos</a>
+          <div class="vr-line"></div>
+          <a href="/contact.html">Contact</a>
+          <div class="vr-line"></div>
+          <a href="/archive.html">Archives</a>
+        </div>
+      </header>
+      <!-- CONTENT -->
+      <main id="content">
+        <h1>$title$</h1>
+        $body$
+      </main>
+      <!-- FOOTER -->
+      <footer id="footer">
+        Powered by <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+        <img src="/images/haskell_logo.png"/>
+      </footer>
+    </div>
   </body>
 </html>

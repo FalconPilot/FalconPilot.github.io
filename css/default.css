@@ -4,6 +4,7 @@
 
 :root {
   --info-height: 1em;
+  --logo-size: 100px;
 }
 
 /*
@@ -12,11 +13,18 @@
 
 body {
   margin: 0;
+  height: 100vh;
+  display: flex;
+  font-family: sans-serif;
+  color: #333;
+}
+
+div#page {
+  flex: 1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
-  color: #333;
+  overflow: auto;
 }
 
 a, a:visited {
@@ -38,7 +46,10 @@ a, a:visited {
 **  Logo
 */
 
-#logo { height: 100px; }
+#logo {
+  height: 100px; /* For older browsers */
+  height: var(--logo-size);
+}
 
 #logo > img { height: 100%; }
 
@@ -67,7 +78,10 @@ header > a {
 /* Main content */
 main {
   flex: 1;
-  padding: 5px 18%;
+  padding: 5px 15%;
+  padding-right: 15%; /* For older browsers */
+  padding-right: calc(15% + 100px); /* For slightly less older browsers */
+  padding-right: calc(15% + var(--logo-size));
 }
 
 /* Footer */
