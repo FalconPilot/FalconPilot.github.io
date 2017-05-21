@@ -92,19 +92,21 @@ On se rend compte que JSX permet d'avoir une syntaxe de markup plus proche de ce
 
 Ainsi React-Redux, pouvant profiter de JSX, permet d'avoir une syntaxe avec laquelle les développeurs seront déjà habitués, ce qui peut être un avantage pour React-Redux.
 
-## Redux a-t-il des points forts ?
+## Redux a-t-il des avantages ?
 
-En outre, la réponse est "oui". Tout d'abord, la centralisation des données rend bien plus simple l'organisation d'un grand projet en Javascript sans avoir à se poser de question quand au scope des actions entreprises. Son binding avec ReactJS est parfait en terme d'homogénéité et peut apporter un vrai plus en terme d'organisation et de logique de projet.
+La centralisation des données rend bien plus simple l'organisation d'un grand projet en Javascript sans avoir à se poser de question quand au scope des actions entreprises. Son binding avec ReactJS est parfait en terme d'homogénéité et peut apporter un vrai plus en terme d'organisation et de logique de projet, ce qui peut être très bienvenu pour développer notamment des projets collaboratifs.
 
 Également, Redux est léger. Dépendances inclues, il ne pèse que 2ko (selon les dires de ses créateurs, en tout cas), ce qui est, on peut le dire, plus que raisonnable. En prenant en compte les craintes de certains développeurs sur le poids final de certains projets Javascript, un framework aussi léger est plutôt rassurant.
 
-L'inspiration de la Elm Architecture est un point très positif pour Redux, cette dernière reposant sur des concepts et principes solides de la programmation fonctionnelle encourageant (voire forçant) à l'emploi de bonnes pratiques.
+L'inspiration de la Elm Architecture est un point très positif pour Redux, cette dernière reposant sur des concepts et principes solides de la programmation fonctionnelle encourageant (voire forçant) à l'emploi de bonnes pratiques. Il ne faut pas oublier que Redux s'utilise avec Javascript, et qu'énormément de développeurs utilisent Javascript, ce qui le rend plus accessible pour beaucoup de personnes.
+
+La réponse à la question de l'intitulé de cette section est, sans aucun doute, "Oui" : Redux a bel et bien des avantages dans certains cas de figure.
 
 ## Oui, mais...
 
 N'oublions pas que Redux s'inspire de la Elm Architecture qui vient avec son propre langage, Elm. Ainsi parfois, les limites de Redux peuvent se sentir. Notamment, l'absence de typage statique en Javascript est un énorme manque à ce modèle de données. En outre l'un des points forts du langage, à savoir la garantie d'absence d'erreur au runtime en dehors des effets de bord sous réserve que le programme compile, disparait complètement avec Redux.
 
-Également, Redux reste destiné, selon moi, à des projets de grande envergure. Son implémentation le rend beaucoup trop overkill pour une utilisation dans de plus petits projets, qui ne feront que gagner en complexité sans grande nécessité. Avec React-Redux, je ne peux que recommander Flux pour ce genre de petit projet sans un grand besoin d'accessibilité à un scope complexe et profond.
+Également, Redux reste destiné, selon moi, à des projets de grande envergure. Son implémentation le rend beaucoup trop overkill pour une utilisation dans de plus petits projets, qui ne feront que gagner en complexité sans grande nécessité. Avec React-Redux, je ne peux que recommander la gestion interne des composants de React pour ce genre de petit projet sans un grand besoin d'accessibilité à un scope complexe et profond.
 
 ## En résumé, les points forts...
 
