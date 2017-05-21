@@ -162,12 +162,14 @@ pre > code {
 */
 
 .info {
+  margin: 5px 0;
   line-height: var(--info-height); /* For older browsers */
   line-height: calc(var(--info-height) + 4px);
   font-style: italic;
+  text-align: right;
 }
 
-.info:before {
+.info:after {
   content: "ℹ";
   height: var(--info-height);
   width: var(--info-height);
