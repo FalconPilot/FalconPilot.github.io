@@ -22,6 +22,8 @@ body {
 div#page {
   flex: 1;
   min-height: 100vh;
+  padding-right: 100px; /* For older browsers */
+  padding-right: var(--logo-size);
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -79,9 +81,6 @@ header > a {
 main {
   flex: 1;
   padding: 5px 15%;
-  padding-right: 15%; /* For older browsers */
-  padding-right: calc(15% + 100px); /* For slightly less older browsers */
-  padding-right: calc(15% + var(--logo-size));
 }
 
 /* Footer */
@@ -103,7 +102,7 @@ div#navigation {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 /*
