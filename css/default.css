@@ -141,6 +141,7 @@ code {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-style: italic;
   color: #AAA;
   border: 1px solid #AAA;
   border-radius: 50%;
