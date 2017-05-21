@@ -4,17 +4,17 @@ title: Redux et Elm, une bonne inspiration ?
 
 ## Redux et Elm, une bonne inspiration ?
 
-Les créateurs de Redux ne s'en cachent pas, une de leurs sources d'inspiration nette et visible est la Elm Architecture. On y retrouve des points communs flagrants et prometteurs : des données centralisées, un design modulaire et un cycle d'update pour chaque composant par le biais de messages. Seulement, une question me vient alors à l'esprit : est-ce que les résultats suivent ? Après tout, Elm est une technologie statiquement typée inspirée des familles de langages ML, tandis que Redux voit son utilisation principale se faire via React-Redux, un framework Javascript. Les deux univers sont donc assez distants, et on peut être en droit de se demander si un tel portage est possible. Je ne prétend pas avoir de réponse définitive, mais voici mon avis sur le sujet.
+Les créateurs de Redux ne s'en cachent pas, une de leurs sources d'inspiration nette et visible est la Elm Architecture. On y retrouve des points communs flagrants et prometteurs : des données centralisées, un design modulaire et un cycle d'update pour chaque composant par le biais de messages. Seulement, une question me vient alors à l'esprit : est-ce que les résultats suivent ? Après tout, Elm est une technologie statiquement typée inspirée des familles de langages ML, tandis que Redux voit son utilisation principale se faire via React-Redux, un binding pour ReactJS. Les deux univers sont donc assez distants, et on peut être en droit de se demander si un tel portage est possible. Je ne prétend pas avoir de réponse définitive, mais voici mon avis sur le sujet.
 
 ## Bref aperçu de la Elm Architecture
 
-Une introduction à la Elm Architecture peut être intéressante pour ceux qui ignorent totalement son fonctionnement. Il existe déjà des tas d'articles passionnants et simples permettant de comprendre son principe, ainsi qu'un [talk donné à LilleFP fin Février](https://www.youtube.com/watch?v=rVZRCXutfng) par moi-même et [xvw](https://github.com/xvw) pour introduire le langage de façon simple et concise (hou, la vilaine auto-promotion !).
+Une introduction à la Elm Architecture peut être intéressante pour ceux qui ignorent totalement son fonctionnement. Il existe déjà des tas d'articles passionnants et simples permettant de comprendre son principe, ainsi qu'un [talk donné à LilleFP fin Février](https://www.youtube.com/watch?v=rVZRCXutfng) par moi-même et [xvw](https://github.com/xvw) pour introduire le langage de façon simple et concise (hou, la vilaine auto-promotion !). Sinon, il y a toujours [le site officiel d'Elm-lang](http://elm-lang.org/).
 
 ## Redux, concrètement, c'est quoi ?
 
 Dans les faits, Redux est un conteneur pour applications Javascript reprenant des idées popularisées par Elm pour rendre bien plus évident le développement de projets à grande échelle en Javascript. Bien qu'il soit très souvent utilisé avec ReactJS, il est utilisable avec n'importe-quelle autre bibliothèque dans la théorie.
 
-Pour une question de clareté, cependant, l'article utilisera le binding React-Redux pour avoir une base commune et éprouvée.
+Pour une question de clareté, cependant, l'article utilisera le binding React-Redux (qui ne fait pas partie du projet de Redux directement) pour avoir une base commune et éprouvée à présenter.
 
 ## Update dans Elm et React-Redux
 
@@ -60,7 +60,7 @@ On peut voir une énorme ressemblance au niveau de la structure : une fonction, 
 
 Un point d'honneur des deux langages (ainsi que de React, d'ailleurs) est de prôner l'immutabilité des données, ce qui est, de mon point de vue, une très bonne pratique. Avoir des données immutables est bien plus sûr au niveau du code et bien plus propre.
 
-Seulement, vient un des points capitaux qui peut avantager Elm : toutes les erreurs d'un programme Elm seront annoncées à la compilation. Ainsi, avec Redux, envoyer un message invalide (ici, imaginons qu'un utilisateur envoie un message `COUCOU` à l'update, dans Elm, la compilation échouera pour notifier l'utilisateur de son erreur, dans Redux, il se contentera d'exécuter du code par défaut au runtime - dans notre exemple, renvoyer l'état non modifié). Cela ne condamne pas Redux pour autant, mais c'est une divergence importante pour comprendre les limitations éventuelles qu'un écosystème Javascript peut avoir lorsqu'il s'inspire d'une technologie statiquement typée. Pour autant, Redux n'est pas à jeter pour autant.
+Seulement, vient un des points capitaux qui peut avantager Elm : toutes les erreurs d'un programme Elm seront annoncées à la compilation. Ainsi, avec Redux, envoyer un message invalide (ici, imaginons qu'un utilisateur envoie un message `'COUCOU'` à l'update, dans Elm, la compilation échouera pour notifier l'utilisateur de son erreur, dans Redux, il se contentera d'exécuter du code par défaut au runtime - dans notre exemple, renvoyer l'état non modifié). Cela ne condamne pas Redux pour autant, mais c'est une divergence importante pour comprendre les limitations éventuelles qu'un écosystème Javascript peut avoir lorsqu'il s'inspire d'une technologie statiquement typée. Pour autant, Redux n'est pas à jeter pour autant.
 
 ## Générer une vue : JSX et Elm
 
