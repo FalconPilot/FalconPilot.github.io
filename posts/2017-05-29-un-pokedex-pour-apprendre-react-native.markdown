@@ -53,3 +53,57 @@ Ce bloc de code basique me donne au moins une idée de ce que je dois implément
 
 - Un composant "Pokelist" qui représentera la liste des pokémons à afficher
 - Un composant "Pokécontent" qui affichera les informations du pokémon sélectionné, s'il existe
+
+## Chargement des assets
+
+Une des premières difficultés assez gênantes que j'ai rencontré était pour le chargement des images des pokémons. En effet, React-Native empêche **complètement** le chargement d'assets de façon dynamique via `require(...)`. Tous les assets chargés localement doivent ainsi l'être de façon statique.
+
+Après une longue recherche, j'ai fini par écrire un [bête script Ruby](https://github.com/FalconPilot/react-pokedex/blob/master/generate_table.rb) qui génère une table de correspondance dans un fichier **.js** qui permettra ainsi de charger tous les assets de façon statique. En vérité, c'est même la seule solution que j'ai pu trouver de mon côté.
+
+## Obtenir la liste des Pokémons
+
+Pour charger la liste des pokémons, on peut observer les données renvoyées par la PokeAPI. Ce qui nous intéresse, c'est de savoir qu'à chaque requête, on récupère au moins :
+
+- 20 pokémons avec leurs noms
+- L'URL de la requête permettant de récupérer les 20 pokémons suivants (peut être `null`)
+
+Ainsi la solution que j'ai décidé d'adopter était l'écriture d'une fonction récursive permettant de charger la liste des pokémons.
+
+```javascript
+  /* Recursively get pokemons */
+  getPokemons(next) {
+    /* Load next pokemons */
+    if (next !== null && next !== undefined) {
+      fetch(next)
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(this.state.dataSource._dataBlob.s1.concat(data.results))
+          });
+          this.getPokemons(data.next);
+        })
+        .catch(error => {
+          console.warn(error);
+        });
+    /* AsyncStorage caching */
+    } else {
+      AsyncStorage
+        .getItem('pokelist', (err, result) => {
+          if (result !== null && result !== undefined) {
+            const data = JSON.parse(result);
+            const ds = this.state.dataSource._dataBlob.s1;
+            if (data.dataSource._dataBlob.s1.length < ds.length) {
+              AsyncStorage.setItem('pokelist', JSON.stringify(ds));
+            }
+          } else {
+            AsyncStorage.setItem('pokelist', JSON.stringify(ds));
+          }
+        })
+        .catch(error => {
+          console.warn(error);
+        });
+    }
+
+```
+
+Cette fonction est le coeur de l'application. Tout bêtement, elle reçoit un argument `next` qui représente l'URL à charger, ou bien `null` dans le cas où on soit arrivé à la fin de la liste de pokémons. Dans le cas où on dispose d'une valeur nulle, on tente de mettre en cache les données chargées. Dans le cas contraire, on effectue une requête à l'API, on ajoute les données ainsi chargées dans un storage (AsyncStorage) ainsi qu'au State du composant.

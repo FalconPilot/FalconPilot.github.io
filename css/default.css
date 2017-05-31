@@ -50,6 +50,7 @@ a, a:visited {
 */
 
 #logo {
+  display: block;
   height: 100px; /* For older browsers */
   height: var(--logo-size);
 }
@@ -163,7 +164,9 @@ pre > code {
 
 .info {
   margin: 5px 0;
+  line-height: 1em; /* For older browsers */
   line-height: var(--info-height); /* For older browsers */
+  line-height: calc(1em + 4px); /* For older browsers */
   line-height: calc(var(--info-height) + 4px);
   font-style: italic;
   text-align: right;
@@ -171,6 +174,8 @@ pre > code {
 
 .info:after {
   content: "ℹ";
+  height: 1em; /* For older browsers */
+  width: 1em; /* For older browsers */
   height: var(--info-height);
   width: var(--info-height);
   margin: 0 5px;
@@ -188,10 +193,28 @@ pre > code {
 **  Modified Pandoc-generated syntax highlight
 */
 
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre
-   { margin: 0; padding: 0; border: 0; vertical-align: baseline; border: none; }
-td.lineNumbers { border-right: 1px solid #AAAAAA; text-align: right; color: #AAAAAA; padding-right: 5px; padding-left: 5px; }
+table.sourceCode,
+tr.sourceCode,
+td.lineNumbers,
+td.sourceCode,
+table.sourceCode pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  border: none;
+}
+
+td.lineNumbers {
+  border-right: 1px solid #AAAAAA;
+  text-align: right;
+  color: #AAAAAA;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
 td.sourceCode { padding-left: 5px; }
+
 .sourceCode span.kw { color: #814387; font-weight: bold; }
 .sourceCode span.dt { color: #4070a0; }
 .sourceCode span.dv { color: #40a070; }
