@@ -35,6 +35,8 @@ a, a:visited {
   text-decoration: none;
 }
 
+h1 { font-size: 1.5em; }
+
 /*
 **  Separators
 */
@@ -53,9 +55,10 @@ a, a:visited {
   display: block;
   height: 100px; /* For older browsers */
   height: var(--logo-size);
+  max-width: 10%;
 }
 
-#logo > img { height: 100%; }
+#logo > img { width: 100%; }
 
 /*
 **  Structural classes
