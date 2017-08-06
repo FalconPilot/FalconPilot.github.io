@@ -10,7 +10,7 @@ Il sera rédigé en plusieurs partie (une par composant, pour être exact) étan
 
 ## Mais c'est quoi, React-Native ?
 
-Tout simplement, il s'agit d'un "binding" utilisant une structure en Java permettant d'utiliser l'écosystème de Javascript (et plus précisément ReactJS par défaut) dans le but de réaliser des applications mobiles. L'idée a ses points forts, comme :
+Tout simplement, c'est une techno' permettant d'utiliser l'écosystème de Javascript et la syntaxe de ReactJS dans le but de réaliser des applications mobiles. L'idée a ses points forts, comme :
 
 - L'utilisation d'une syntaxe connue et familière
 - L'écosystème javascript !
