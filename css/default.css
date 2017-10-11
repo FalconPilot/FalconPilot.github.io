@@ -238,16 +238,18 @@ td.sourceCode { padding-left: 5px; }
 **  Responsive classes
 */
 
-@media all and (max-width: 800px) {
-  body {
-    flex-direction: column;
-  }
+@media all and (max-width:800px) {
 
+  /* Responsive body */
+  body { flex-direction: column; }
+
+  /* Responsive main page */
   div#page {
     min-height: auto;
     padding: 0 5%;
   }
 
+  /* Responsive page logo */
   #logo {
     margin: 0 auto;
     max-width: 100px;
