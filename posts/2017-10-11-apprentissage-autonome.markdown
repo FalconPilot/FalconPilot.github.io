@@ -32,9 +32,7 @@ En revanche, pour ce qui est des "bonnes méthodes", ici, tout devient très sub
 
 #### S'auto-persuader
 
-Probablement la méthode la plus efficace sur moi-même : si on se persuade sincèrement et très honnêtement qu'un sujet est intéressant, alors il va le devenir. Dans le cadre de mon travail, à un moment, j'ai du me mettre à programmer en Go puis en PHP, deux langages que je n'aime pas du tout. Et pourtant, en gardant en tête l'objectif et en me convainquant réellement que "c'est pas mal du tout, quand on est motivé", j'ai réussi à faire du Go et du PHP sans me sentir spécialement mal.
-
-L'esprit humain est réellement puissant, et ce genre de capacité d'auto-persuasion peut réellement faire des miracles sur tout et n'importe-quoi. Mais il serait extrêmement long de parler en profondeur d'un tel sujet de façon précise, alors je vais en rester là et vous conseiller de chercher d'autres articles fascinants sur le sujet.
+Probablement la méthode la plus efficace sur moi-même : si on se persuade sincèrement et très honnêtement qu'un sujet est intéressant, alors il va le devenir. L'esprit humain est réellement puissant, et ce genre de capacité d'auto-persuasion peut réellement faire des miracles sur tout et n'importe-quoi. Mais il serait extrêmement long de parler en profondeur d'un tel sujet de façon précise, alors je vais en rester là et vous conseiller de chercher d'autres articles fascinants sur le sujet.
 
 #### Se constituer un fil d'actualité
 
