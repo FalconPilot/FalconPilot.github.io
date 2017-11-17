@@ -164,6 +164,20 @@ pre > code {
 .figure > img { max-width: 100%; }
 
 /*
+**  Posts list classes
+*/
+
+.posts-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.posts-list > a {
+  display: block;
+  flex: 1;
+}
+
+/*
 **  Infobox
 */
 
