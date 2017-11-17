@@ -170,22 +170,29 @@ pre > code {
 .posts-list {
   margin: 1em 0;
   padding: 0;
+  border: 1px solid #FAFAFA;
 }
 
 .posts-list > li {
-  max-width: 50%;
   padding: 1em;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
 }
+
+.posts-list > li:nth-child(odd) { background-color: #FAFAFA; }
 
 .posts-list > li > a {
-  display: block;
-  flex: 1;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
 }
 
-.posts-list > li > a > span { font-variant: small-caps; }
+.posts-list > li > a > span {
+  flex: 1;
+  text-align: left;
+  font-variant: small-caps;
+}
+
+.posts-list > li > a > strong { flex-shrink: 0; }
 
 /*
 **  Infobox
