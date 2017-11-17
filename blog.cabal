@@ -1,8 +1,8 @@
-name:                blog
+name:                blog-de-prog
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/blog#readme
+homepage:            https://github.com/FalconPilot/falconpilot.github.io
 license:             BSD3
 license-file:        LICENSE
 author:              Author name here
