@@ -170,29 +170,39 @@ pre > code {
 .posts-list {
   margin: 1em 0;
   padding: 0;
-  border: 1px solid #FAFAFA;
+  border: 2px solid #FAFAFA;
 }
 
 .posts-list > li {
-  padding: 1em;
-  box-sizing: border-box;
+  display: block;
 }
 
 .posts-list > li:nth-child(odd) { background-color: #FAFAFA; }
 
 .posts-list > li > a {
+  padding: 1em;
+  box-sizing: border-box;
   display: flex;
   flex-direction:row;
   align-items: center;
+  transition: 0.2s;
 }
 
+.posts-list > li > a:hover { padding-left: 2em; }
+
+.posts-list > li > a:hover > span { text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+
 .posts-list > li > a > span {
+  display: block;
   flex: 1;
   text-align: left;
   font-variant: small-caps;
 }
 
-.posts-list > li > a > strong { flex-shrink: 0; }
+.posts-list > li > a > strong {
+  flex-shrink: 0;
+  font-style: italic;
+}
 
 /*
 **  Infobox
