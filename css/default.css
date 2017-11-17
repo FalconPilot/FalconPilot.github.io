@@ -170,12 +170,11 @@ pre > code {
 .posts-list {
   margin: 1em 0;
   padding: 0;
-  border: 2px solid #FAFAFA;
+  border: 5px solid #FAFAFA;
+  border-radius: 8px;
 }
 
-.posts-list > li {
-  display: block;
-}
+.posts-list > li { display: block; }
 
 .posts-list > li:nth-child(odd) { background-color: #FAFAFA; }
 
@@ -188,10 +187,6 @@ pre > code {
   transition: 0.2s;
 }
 
-.posts-list > li > a:hover { padding-left: 2em; }
-
-.posts-list > li > a:hover > span { text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
-
 .posts-list > li > a > span {
   display: block;
   flex: 1;
@@ -203,6 +198,11 @@ pre > code {
   flex-shrink: 0;
   font-style: italic;
 }
+
+/* Hover classes */
+.posts-list > li > a:hover { padding-left: 2em; }
+
+.posts-list > li > a:hover > span { text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
 
 /*
 **  Infobox
