@@ -168,14 +168,24 @@ pre > code {
 */
 
 .posts-list {
+  margin: 1em 0;
+  padding: 0;
+}
+
+.posts-list > li {
+  max-width: 50%;
+  padding: 1em;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
 }
 
-.posts-list > a {
+.posts-list > li > a {
   display: block;
   flex: 1;
 }
+
+.posts-list > li > a > span { font-variant: small-caps; }
 
 /*
 **  Infobox
