@@ -188,6 +188,7 @@ pre > code {
 }
 
 .posts-list > li > a > span {
+  margin-right: 1em;
   display: block;
   flex: 1;
   text-align: left;
@@ -197,6 +198,8 @@ pre > code {
 .posts-list > li > a > strong {
   flex-shrink: 0;
   font-style: italic;
+  font-size: 0.8em;
+  color: #333;
 }
 
 /* Hover classes */
@@ -294,5 +297,19 @@ td.sourceCode { padding-left: 5px; }
   #logo {
     margin: 0 auto;
     max-width: 100px;
+  }
+
+  /* Responsive posts list */
+  .posts-list > li > a {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .posts-list > li > a > span { margin-right: 0; }
+
+  .posts-list > li > a > strong {
+    width: 100%;
+    margin-top: 1em;
+    text-align: right;
   }
 }
