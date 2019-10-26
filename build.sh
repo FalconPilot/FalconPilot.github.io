@@ -3,8 +3,8 @@ git stash
 git checkout develop
 
 # Build site
-stack exec blog clean
-stack exec blog build
+stack exec blog-de-prog clean
+stack exec blog-de-prog build
 
 # Switch to master branch
 git fetch --all
