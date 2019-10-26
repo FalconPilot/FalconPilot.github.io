@@ -11,8 +11,9 @@ J'aime beaucoup les technologies web modernes en général, notamment Elixir,
 Elm, et j'ai beaucoup travaillé avec des technologies liées à JavaScript (NodeJS, ReactJS,
 TypeScript...).
 
+===========================
 Mes expériences principales
-=======
+===========================
 
 J'ai travaillé 2 mois en tant que développeur outils à Epitech Lille,
 en utilisant notamment Elm.
