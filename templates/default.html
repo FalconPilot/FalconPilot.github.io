@@ -4,11 +4,12 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Blog de prog'</title>
+    <title>Blog de prog' - $title$</title>
     <link rel="stylesheet" type="text/css" href="/css/default.css"/>
     <link rel="shortcut icon" type="image/png" href="/images/FP_logo.png"/>
-    <!-- OGP TAGS -->
-    <meta property="og:title" content="Blog de prog'"/>
+
+    <!-- OPENGRAPH TAGS -->
+    <meta property="og:title" content="Blog de prog' - $title$"/>
     <meta property="og:type" content="article"/>
     <meta property="og:description" content="Blog de programmation. Ça parle de fonctionnel !"/>
     <meta property="og:locale" content="fr_FR"/>
@@ -19,16 +20,20 @@
     <meta property="og:image:secure_url" content="https://falconpilot.github.io/images/FP_logo.png"/>
     <meta property="og:image:type" content="image/png"/>
   </head>
+
   <!-- BODY -->
   <body>
     <!-- LOGO -->
     <a href="/" title="Accueil" id="logo">
       <img src="/images/FP_logo.png"/>
     </a>
+
     <!-- MAIN PAGE -->
     <div id="page">
+
       <!-- HEADER -->
       <header id="header">
+
         <!-- NAVIGATION -->
         <div id="navigation">
           <a href="/">Index</a>
@@ -40,11 +45,13 @@
           <a href="/archive.html">Archives</a>
         </div>
       </header>
+
       <!-- CONTENT -->
       <main id="content">
         <h1>$title$</h1>
         $body$
       </main>
+
       <!-- FOOTER -->
       <footer id="footer">
         Powered by <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
