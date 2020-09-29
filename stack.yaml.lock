@@ -5,12 +5,21 @@
 
 packages:
 - completed:
+<<<<<<< Updated upstream
     hackage: hakyll-4.13.4.0@sha256:d97cb1b1cf7b901ce049e6e0aa5b1ac702cf52d2e475f5d3fe2de3694bb7dc7b,8867
     pantry-tree:
       size: 7841
       sha256: e31b612480429149bd2c042dd49cdb1a5eb9c807d4acce4a971a6da3d6f5db81
   original:
     hackage: hakyll-4.13.4.0
+=======
+    hackage: hakyll-4.13.0.1@sha256:0f27d74feaedc96648ec5377ecec2b35dd677516c9667d179462a350f2075628,8817
+    pantry-tree:
+      size: 7841
+      sha256: 4a4409d287ee3daabb0141e3ebd3d2e88ead7382ba5cc582733907b4a938c4a8
+  original:
+    hackage: hakyll-4.13.0.1
+>>>>>>> Stashed changes
 snapshots:
 - completed:
     size: 491387
