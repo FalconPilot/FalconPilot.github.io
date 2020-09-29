@@ -1,0 +1,13 @@
+{
+  "name": "falconpilot.github.io",
+  "version": "1.0.0",
+  "description": "My personal blog",
+  "repository": "git@github.com:FalconPilot/falconpilot.github.io.git",
+  "author": "Ralph' Potato <fpilot.github@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "init": "mkdir _site",
+    "clean": "rm -rf _site"
+  }
+}

@@ -1,4 +1,10 @@
+# Legacy Haskell stuff
 _cache/
 _site/
 .stack-work/
+
+# OS X .DS_Store
 .DS_Store
+
+# Yarn artifacts
+node_modules/
