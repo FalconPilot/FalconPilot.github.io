@@ -18,8 +18,7 @@ Mes expériences principales
 J'ai travaillé 2 mois en tant que développeur outils à Epitech Lille,
 en utilisant notamment Elm.
 
-J'ai travaillé de Juin 2017 à Octobre 2019 chez Equisense en tant que
+J'ai travaillé de Juin 2017 à Octobre 2018 chez Equisense en tant que
 développeur web fullstack.
 
-Je travaille depuis Novembre 2019 chez Permettez moi de construire en tant que Développeur web
-(fullstack, principalement).
+Je travaille depuis Novembre 2018 chez Permettez moi de construire en tant que Développeur web fullstack.
