@@ -21,4 +21,7 @@ en utilisant notamment Elm.
 J'ai travaillé de Juin 2017 à Octobre 2018 chez Equisense en tant que
 développeur web fullstack.
 
-Je travaille depuis Novembre 2018 chez Permettez moi de construire en tant que Développeur web fullstack.
+J'ai travaillé depuis Novembre 2018 jusqu'à Février 2021 chez Permettez moi de construire
+en tant que Développeur web fullstack.
+
+Je travaille depuis Mars 2021 chez Saveur Bière en tant que développeur front-end.
