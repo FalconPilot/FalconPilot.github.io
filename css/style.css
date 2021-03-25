@@ -312,7 +312,6 @@ td.sourceCode { padding-left: 5px; }
   div#page {
     min-height: auto;
     padding: 0 5% 3em 5%;
-    flex-direction: column-reverse;
   }
 
   /* Responsive page logo */
