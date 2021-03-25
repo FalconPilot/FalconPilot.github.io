@@ -38,6 +38,13 @@ const buildIndex = async posts => buildPage('index', {
   posts: posts.slice(0, 3)
 })
 
+const buildArchive = async posts => buildPage('archive', {
+  title: 'Articles',
+  urlPath: '/archive.html',
+  pageTitle: 'Articles',
+  posts
+})
+
 const buildPages = async () => {
   const postFiles = fs.readdirSync(srcPostsPath)
   const posts = postFiles.map(file => ({
@@ -47,7 +54,8 @@ const buildPages = async () => {
   }))
 
   return Promise.all([
-    buildIndex(posts || [])
+    buildIndex(posts),
+    buildArchive(posts)
   ])
 }
 

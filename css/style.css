@@ -209,6 +209,10 @@ pre > code {
   color: #333;
 }
 
+.posts-more {
+  
+}
+
 /* Hover classes */
 .posts-list > li > a:hover { padding-left: 2em; }
 

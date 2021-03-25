@@ -1,14 +1,11 @@
 <p>Bienvenue sur le Blog de Prog' ! Vous aimez le fonctionnel ? Moi oui.</p>
 
-<h2>Articles</h2>
+<h2>Quelques articles</h2>
 
 <ul class="posts-list">
   <% posts.forEach(post => { %>
-    <li>
-      <a href="<%= post.link %>">
-        <span><%= post.title %></span>
-        <strong><%= post.date %></strong>
-      </a>
-    </li>
+    <%- include('../parts/post.ejs', { post }) %>
   <% }) %>
 </ul>
+
+<a class="posts-more" href="https://fpilot.github.io/archive.html">Plus d'articles par ici</a>
