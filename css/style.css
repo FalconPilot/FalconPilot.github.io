@@ -209,8 +209,8 @@ pre > code {
   color: #333;
 }
 
-.posts-more {
-  
+.posts-more:before {
+  content: '➜ ';
 }
 
 /* Hover classes */
