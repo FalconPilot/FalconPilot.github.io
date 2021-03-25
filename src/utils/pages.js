@@ -2,8 +2,15 @@ const fs = require('fs')
 const path = require('path')
 const ejs = require('ejs')
 
-const { buildMarkdown, buildMarkdownFiles } = require('./markdown')
-const { rootPath, staticPagesPath, pagesPath, templatesPath } = require('../constants/paths')
+const { getMarkdownTitle, buildMarkdown, buildMarkdownFiles } = require('./markdown')
+
+const {
+  rootPath,
+  staticPagesPath,
+  pagesPath,
+  templatesPath,
+  srcPostsPath
+} = require('../constants/paths')
 
 const buildStaticPage = async (filename) => buildMarkdown(rootPath)(staticPagesPath, filename)
 
@@ -14,7 +21,7 @@ const buildStaticPages = async () => {
 
 const buildPage = async (filename, data) => new Promise(async (resolve, reject) => {
   console.log(`> Building ${filename}.ejs...`)
-  const content = await ejs.renderFile(path.resolve(pagesPath, `${filename}.ejs`))
+  const content = await ejs.renderFile(path.resolve(pagesPath, `${filename}.ejs`), data)
   const page = await ejs.renderFile(path.resolve(templatesPath, 'page.ejs'), {
     ...data,
     pageBody: content
@@ -24,15 +31,25 @@ const buildPage = async (filename, data) => new Promise(async (resolve, reject) 
   resolve()
 })
 
-const buildIndex = async () => buildPage('index', {
+const buildIndex = async posts => buildPage('index', {
   title: null,
   urlPath: '',
-  pageTitle: 'Bienvenue sur le Blog de Prog\''
+  pageTitle: 'Bienvenue sur le Blog de Prog\'',
+  posts: posts.slice(0, 3)
 })
 
-const buildPages = async () => Promise.all([
-  buildIndex()
-])
+const buildPages = async () => {
+  const postFiles = fs.readdirSync(srcPostsPath)
+  const posts = postFiles.map(file => ({
+    title: getMarkdownTitle(path.resolve(srcPostsPath, file)),
+    date: file.split('-').slice(0, 3).join('/'),
+    link: `https://falconpilot.github.io/posts/${file.replace(/\.markdown/, '.html')}`
+  }))
+
+  return Promise.all([
+    buildIndex(posts || [])
+  ])
+}
 
 module.exports = {
   buildStaticPages,

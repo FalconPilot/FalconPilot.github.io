@@ -5,6 +5,12 @@ const ejs = require('ejs')
 
 const { rootPath, templatesPath } = require('../constants/paths')
 
+const getMarkdownTitle = filePath => {
+  const srcContents = fs.readFileSync(filePath, 'utf-8')
+  const match = srcContents.match(/^(?:-+?)\ntitle: (.*?)\n(?:-+?)/)
+  return match[1]
+}
+
 const buildMarkdown = (distPath) => async (srcPath, filename) => new Promise((resolve, reject) => {
   const filePath = path.resolve(srcPath, `${filename}.markdown`)
   exec(`pandoc -f markdown -t html ${filePath}`, async (err, stdout, stderr) => {
@@ -13,9 +19,7 @@ const buildMarkdown = (distPath) => async (srcPath, filename) => new Promise((re
       reject(fail)
     }
 
-    const srcContents = fs.readFileSync(filePath, 'utf-8')
-    const match = srcContents.match(/^(?:-+?)\ntitle: (.*?)\n(?:-+?)/)
-    const title = match[1]
+    const title = getMarkdownTitle(filePath)
 
     const rootRegex = new RegExp(`${rootPath.replace(/([/.])/g, '\\$1')}`)
     const urlRoot = distPath.replace(rootRegex, '')
@@ -45,6 +49,7 @@ const buildMarkdownFiles = buildFunction => async files => (
 )
 
 module.exports = {
+  getMarkdownTitle,
   buildMarkdown,
   buildMarkdownFiles
 }
