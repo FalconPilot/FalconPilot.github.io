@@ -1,5 +1,2 @@
-_cache/
-_site/
-.stack-work/
 .DS_Store
-dist-newstyle
+node_modules/

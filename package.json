@@ -1,0 +1,13 @@
+{
+  "name": "falconpilot.github.io",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "node src/build.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {}
+}

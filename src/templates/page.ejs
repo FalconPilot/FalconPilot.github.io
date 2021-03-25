@@ -4,17 +4,17 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Blog de prog'</title>
+    <title>Blog de prog'<%= title ? ` - ${title}` : '' %></title>
     <link rel="stylesheet" type="text/css" href="/css/default.css"/>
     <link rel="shortcut icon" type="image/png" href="/images/FP_logo.png"/>
 
     <!-- OPENGRAPH -->
-    <meta property="og:title" content="Blog de prog' - "/>
+    <meta property="og:title" content="Blog de prog' - <%= title %>"/>
     <meta property="og:type" content="article"/>
     <meta property="og:description" content="Blog de programmation. Ça parle de fonctionnel !"/>
     <meta property="og:locale" content="fr_FR"/>
 
-    <meta property="og:url" content="https://falconpilot.github.io"/>
+    <meta property="og:url" content="https://falconpilot.github.io<%= urlPath %>"/>
 
     <meta property="og:image" content="https://falconpilot.github.io/images/FP_logo.png"/>
     <meta property="og:image:secure_url" content="https://falconpilot.github.io/images/FP_logo.png"/>
@@ -38,8 +38,8 @@
       </header>
 
       <main id="content">
-        <h1>Bienvenue sur le Blog de Prog&#39;</h1>
-        
+        <h1><%= pageTitle %></h1>
+        <%- pageBody %>
       </main>
 
       <footer id="footer"></footer>
