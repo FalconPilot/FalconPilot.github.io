@@ -84,7 +84,7 @@ header {
 
 header > a {
   display: block;
-  margin: 0 5px;
+  margin: 5px;
 }
 
 /* Main content */
@@ -296,10 +296,20 @@ td.sourceCode { padding-left: 5px; }
   /* Responsive body */
   body { flex-direction: column; }
 
+  /* Responsive header */
+  header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    z-index: 1;
+  }
+
   /* Responsive main page */
   div#page {
     min-height: auto;
-    padding: 0 5%;
+    padding: 0 5% 3em 5%;
     flex-direction: column-reverse;
   }
 
