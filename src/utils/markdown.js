@@ -7,14 +7,14 @@ const { rootPath, templatesPath } = require('../constants/paths')
 
 const getMarkdownTitle = filePath => {
   const srcContents = fs.readFileSync(filePath, 'utf-8')
-  const match = srcContents.match(/^(?:-+?)\ntitle: (.*?)\n(?:-+?)/)
+  const match = srcContents.match(/^(?:-+?)\r?\ntitle: (.*?)\r?\n(?:-+?)/)
   return match[1]
 }
 
 const buildMarkdown = (distPath) => async (srcPath, filename) => new Promise((resolve, reject) => {
   const filePath = path.resolve(srcPath, `${filename}.markdown`)
   exec(`pandoc -f markdown -t html ${filePath}`, async (err, stdout, stderr) => {
-    const fail = err | stderr
+    const fail = err || stderr
     if (fail) {
       reject(fail)
     }
