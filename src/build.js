@@ -1,12 +1,11 @@
 const { buildStaticPages, buildPages } = require('./utils/pages')
 const { buildPosts } = require('./utils/posts')
 
-const init = async () => {
-  await buildPages()
-  await buildStaticPages()
-  await buildPosts()
-}
+const init = () =>
+  buildPages()
+    .then(buildStaticPages)
+    .then(buildPosts)
 
 init().then(() => {
   console.log('Finished !')
-})
+}).catch(console.error)

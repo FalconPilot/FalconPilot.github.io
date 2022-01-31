@@ -5,43 +5,53 @@ const ejs = require('ejs')
 
 const { rootPath, templatesPath } = require('../constants/paths')
 
-const buildMarkdown = (distPath) => async (srcPath, filename) => new Promise((resolve, reject) => {
-  const filePath = path.resolve(srcPath, `${filename}.markdown`)
-  exec(`pandoc -f markdown -t html ${filePath}`, async (err, stdout, stderr) => {
-    const fail = err | stderr
-    if (fail) {
-      reject(fail)
-    }
+const buildMarkdown = (distPath) => (srcPath, filename) => new Promise((resolve, reject) => {
+    const filePath = path.resolve(srcPath, `${filename}.markdown`)
+    exec(`pandoc -f markdown -t html ${filePath}`, async (err, stdout, stderr) => {
+      try {
+        const fail = err || stderr
+        if (fail) {
+          throw new Error(fail)
+        }
 
-    const srcContents = fs.readFileSync(filePath, 'utf-8')
-    const match = srcContents.match(/^(?:-+?)\ntitle: (.*?)\n(?:-+?)/)
-    const title = match[1]
+        const srcContents = fs.readFileSync(filePath, 'utf-8')
+        const match = srcContents.match(/^(?:-+?)\r?\ntitle: (.*?)\r?\n(?:-+?)/g)
+        if (!match) {
+          throw new Error('Cannot find title')
+        }
 
-    const rootRegex = new RegExp(`${rootPath.replace(/([/.])/g, '\\$1')}`)
-    const urlRoot = distPath.replace(rootRegex, '')
-    const urlPath = `${urlRoot}/${filename}.html`
+        const title = match[1]
 
-    const content = await ejs.renderFile(path.resolve(templatesPath, 'page.ejs'), {
-      title,
-      pageTitle: title,
-      urlPath,
-      pageBody: stdout
+        const rootRegex = new RegExp(`${rootPath.replace(/([/.])/g, '\\$1')}`)
+        const urlRoot = distPath.replace(rootRegex, '')
+        const urlPath = `${urlRoot}/${filename}.html`
+
+        const content = await ejs.renderFile(path.resolve(templatesPath, 'page.ejs'), {
+          title,
+          pageTitle: title,
+          urlPath,
+          pageBody: stdout
+        })
+
+        fs.writeFileSync(path.resolve(distPath, `${filename}.html`), content)
+
+        resolve()
+      } catch (err) {
+        console.error(`Error in "${filename}.markdown": ${err.message}`)
+        reject(err)
+      }
     })
-
-    fs.writeFileSync(path.resolve(distPath, `${filename}.html`), content)
-
-    resolve()
-  })
 })
 
-const buildMarkdownFiles = buildFunction => async files => (
+const buildMarkdownFiles = buildFunction => files => (
   Promise.all(
-    files.filter(f => f.match(/\.markdown$/))
-      .map(async filename => {
+    files
+      .filter(f => f.match(/\.markdown$/))
+      .map(filename => {
         console.log(`> Building ${filename}...`)
-        buildFunction(filename.replace(/\.markdown$/, ''))
+        return buildFunction(filename.replace(/\.markdown$/, ''))
       })
-  )
+  ).catch(console.error)
 )
 
 module.exports = {

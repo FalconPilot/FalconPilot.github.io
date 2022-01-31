@@ -13,7 +13,7 @@ Elm, et j'ai beaucoup travaillé avec des technologies liées à JavaScript (Nod
 TypeScript...).
 
 ===========================
-Mes expériences principales
+Mes expériences professionnelles
 ===========================
 
 J'ai travaillé 2 mois en tant que développeur outils à Epitech Lille,

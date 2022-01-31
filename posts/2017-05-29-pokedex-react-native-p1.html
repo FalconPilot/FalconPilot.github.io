@@ -4,17 +4,17 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Blog de prog' - Un pokédex pour apprendre React-Native, partie 1</title>
+    <title>Blog de prog'</title>
     <link rel="stylesheet" type="text/css" href="/css/default.css"/>
     <link rel="shortcut icon" type="image/png" href="/images/FP_logo.png"/>
 
     <!-- OPENGRAPH -->
-    <meta property="og:title" content="Blog de prog' - Un pokédex pour apprendre React-Native, partie 1"/>
+    <meta property="og:title" content="Blog de prog' - "/>
     <meta property="og:type" content="article"/>
     <meta property="og:description" content="Blog de programmation. Ça parle de fonctionnel !"/>
     <meta property="og:locale" content="fr_FR"/>
 
-    <meta property="og:url" content="https://falconpilot.github.io/posts/2017-05-29-pokedex-react-native-p1.html"/>
+    <meta property="og:url" content="https://falconpilot.github.ioC:\Users\FalconPilot\workdir\falconpilot.github.io\posts/2017-05-29-pokedex-react-native-p1.html"/>
 
     <meta property="og:image" content="https://falconpilot.github.io/images/FP_logo.png"/>
     <meta property="og:image:secure_url" content="https://falconpilot.github.io/images/FP_logo.png"/>
@@ -38,29 +38,65 @@
       </header>
 
       <main id="content">
-        <h1>Un pokédex pour apprendre React-Native, partie 1</h1>
-        <p>Étant donné mon intérêt certain pour les technologies web et mon apprentissage actuel de ReactJS, j’ai été plutôt attiré lorsque j’ai découvert l’existence de React-Native. Pouvoir créer une application mobile avec un langage qui permette d’utiliser la syntaxe de Javascript/React et de bénéficier de la totalité de l’écosystème Javascript, et le tout qui compile vers du code natif (et pas vers un pseudo-browser) ? Ça, c’est un deal !</p>
-<p>Cet article couvre la création d’un <a href="https://github.com/FalconPilot/react-pokedex">pokédex en React-Native</a>. Il a été rédigé pour donner un premier aperçu et mon impression quand à l’utilisation de React-Native, et potentiellement une idée de ce que donne l’entrée dans le monde du développement mobile par le biais de cette technologie.</p>
-<p>Il sera rédigé en plusieurs partie (une par composant, pour être exact) étant donné qu’il s’agit d’un programme assez long à détailler, le but étant de présenter la technologie de manière constructive pour permettre d’offrir le regard d’un apprenant sur React-Native.</p>
-<h2 id="mais-cest-quoi-react-native">Mais c’est quoi, React-Native ?</h2>
-<p>Tout simplement, c’est une techno’ permettant d’utiliser l’écosystème de Javascript et la syntaxe de ReactJS dans le but de réaliser des applications mobiles. L’idée a ses points forts, comme :</p>
+        <h1></h1>
+        <p>Étant donné mon intérêt certain pour les technologies web et mon
+apprentissage actuel de ReactJS, j’ai été plutôt attiré lorsque j’ai
+découvert l’existence de React-Native. Pouvoir créer une application
+mobile avec un langage qui permette d’utiliser la syntaxe de
+Javascript/React et de bénéficier de la totalité de l’écosystème
+Javascript, et le tout qui compile vers du code natif (et pas vers un
+pseudo-browser) ? Ça, c’est un deal !</p>
+<p>Cet article couvre la création d’un <a
+href="https://github.com/FalconPilot/react-pokedex">pokédex en
+React-Native</a>. Il a été rédigé pour donner un premier aperçu et mon
+impression quand à l’utilisation de React-Native, et potentiellement une
+idée de ce que donne l’entrée dans le monde du développement mobile par
+le biais de cette technologie.</p>
+<p>Il sera rédigé en plusieurs partie (une par composant, pour être
+exact) étant donné qu’il s’agit d’un programme assez long à détailler,
+le but étant de présenter la technologie de manière constructive pour
+permettre d’offrir le regard d’un apprenant sur React-Native.</p>
+<h2 id="mais-cest-quoi-react-native">Mais c’est quoi, React-Native
+?</h2>
+<p>Tout simplement, c’est une techno’ permettant d’utiliser l’écosystème
+de Javascript et la syntaxe de ReactJS dans le but de réaliser des
+applications mobiles. L’idée a ses points forts, comme :</p>
 <ul>
 <li>L’utilisation d’une syntaxe connue et familière</li>
 <li>L’écosystème javascript !</li>
 <li>Une rapidité de développement assez impressionnante…</li>
 </ul>
 <hr />
-<p>Ces belles qualités sont cependant entâchées par quelques petits problèmes qui ne sont pour autant pas à négliger.</p>
+<p>Ces belles qualités sont cependant entâchées par quelques petits
+problèmes qui ne sont pour autant pas à négliger.</p>
 <ul>
-<li>Le développement est rapide, oui… quand on sait outrepasser certains comportements obscurs</li>
-<li>Certains comportements à la limite de l’ésotérisme (par exemple, crash bête et brutal de l’application en cas d’erreur de style !)</li>
-<li>Des divergences avec l’écosystème complet du web qui peuvent mener à pas mal d’incompréhensions (je pense notamment aux feuilles de style)</li>
+<li>Le développement est rapide, oui… quand on sait outrepasser certains
+comportements obscurs</li>
+<li>Certains comportements à la limite de l’ésotérisme (par exemple,
+crash bête et brutal de l’application en cas d’erreur de style !)</li>
+<li>Des divergences avec l’écosystème complet du web qui peuvent mener à
+pas mal d’incompréhensions (je pense notamment aux feuilles de
+style)</li>
 </ul>
-<h2 id="premières-difficultés-lenvironnement-de-développement">Premières difficultés : l’environnement de développement</h2>
-<p>… La joie fut de courte durée lorsque j’ai découvert le temps nécessaire pour setup l’environnement de développement. Entre l’installation d’Android Studio, le setup d’une machine virtuelle, la gestion des erreurs obscures… Il paraît que certains développeurs ont plus de chance et arrivent à avoir un écosystème complet après une demie-heure/une heure, moi, c’est le temps que ça m’a prit juste pour avoir un émulateur fonctionnel.</p>
-<h2 id="préparations-générer-une-table-de-correspondance-pour-les-assets">Préparations : Générer une table de correspondance pour les assets</h2>
-<p>React-Native interdit le chargement dynamique s’assets via <code>require()</code>. Ainsi, il m’a fallu créer un petit script ruby tout bête pour générer une table de correspondance permettant de charger tous les assets de façon statique et, ainsi, correspondre aux besoins de React-Native.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">begin</span></span>
+<h2 id="premières-difficultés-lenvironnement-de-développement">Premières
+difficultés : l’environnement de développement</h2>
+<p>… La joie fut de courte durée lorsque j’ai découvert le temps
+nécessaire pour setup l’environnement de développement. Entre
+l’installation d’Android Studio, le setup d’une machine virtuelle, la
+gestion des erreurs obscures… Il paraît que certains développeurs ont
+plus de chance et arrivent à avoir un écosystème complet après une
+demie-heure/une heure, moi, c’est le temps que ça m’a prit juste pour
+avoir un émulateur fonctionnel.</p>
+<h2
+id="préparations-générer-une-table-de-correspondance-pour-les-assets">Préparations
+: Générer une table de correspondance pour les assets</h2>
+<p>React-Native interdit le chargement dynamique s’assets via
+<code>require()</code>. Ainsi, il m’a fallu créer un petit script ruby
+tout bête pour générer une table de correspondance permettant de charger
+tous les assets de façon statique et, ainsi, correspondre aux besoins de
+React-Native.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">begin</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ---------------</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Local variables</span></span>
@@ -92,8 +128,12 @@
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
 <p>… Un script tout bête, disais-je :)</p>
 <h2 id="partie-1-le-constructeur">Partie 1 : Le constructeur</h2>
-<p>Nous allons commencer par le coeur de l’application : <a href="https://github.com/FalconPilot/react-pokedex/blob/master/src/index.js">l’index, la page principale</a>. La première fonction que nous allons analyser est le constructeur du composant.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Constructor */</span></span>
+<p>Nous allons commencer par le coeur de l’application : <a
+href="https://github.com/FalconPilot/react-pokedex/blob/master/src/index.js">l’index,
+la page principale</a>. La première fonction que nous allons analyser
+est le constructeur du composant.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Constructor */</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span>(props) {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">super</span>(props)<span class="op">;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">state</span> <span class="op">=</span> {</span>
@@ -105,20 +145,33 @@
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">global</span><span class="op">.</span><span class="at">baseURL</span> <span class="op">=</span> <span class="st">&quot;http://pokeapi.co/api/v2&quot;</span><span class="op">;</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">global</span><span class="op">.</span><span class="at">pokeCacheLength</span> <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
-<p>Assez simple, le constructeur se contente d’initialiser deux choses. La première, c’est l’état de l’application, qui va contenir trois clés :</p>
+<p>Assez simple, le constructeur se contente d’initialiser deux choses.
+La première, c’est l’état de l’application, qui va contenir trois clés
+:</p>
 <ul>
-<li><code>displayed</code> : Définit le pokémon actuellement affiché à droite de l’écran</li>
-<li><code>loading</code> : Définit si l’application est en train de charger</li>
-<li><code>error</code> : Définit une erreur à afficher à l’utilisateur</li>
+<li><code>displayed</code> : Définit le pokémon actuellement affiché à
+droite de l’écran</li>
+<li><code>loading</code> : Définit si l’application est en train de
+charger</li>
+<li><code>error</code> : Définit une erreur à afficher à
+l’utilisateur</li>
 </ul>
-<p>Ensuite, on définit deux constantes globales utiles au sein de l’application :</p>
+<p>Ensuite, on définit deux constantes globales utiles au sein de
+l’application :</p>
 <ul>
 <li><code>baseURL</code> : L’URL racine de l’API</li>
-<li><code>pokeCacheLength</code> : Le nombre maximal de pokémons individuels stockés en cache dans l’application</li>
+<li><code>pokeCacheLength</code> : Le nombre maximal de pokémons
+individuels stockés en cache dans l’application</li>
 </ul>
-<h2 id="partie-2-fonctions-utilitaires">Partie 2 : Fonctions utilitaires</h2>
-<p>Au sein du composant, plusieurs fonctions seront définies pour être utilisées au sein des composants enfants. Pourquoi donc ? La raison est assez simple : pour permettre aux composants enfants de modifier le state du composant parent. On doit définir, plus précisément, trois fonctions.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Changing displayed pokemon */</span></span>
+<h2 id="partie-2-fonctions-utilitaires">Partie 2 : Fonctions
+utilitaires</h2>
+<p>Au sein du composant, plusieurs fonctions seront définies pour être
+utilisées au sein des composants enfants. Pourquoi donc ? La raison est
+assez simple : pour permettre aux composants enfants de modifier le
+state du composant parent. On doit définir, plus précisément, trois
+fonctions.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Changing displayed pokemon */</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  onChange <span class="op">=</span> (data) <span class="kw">=&gt;</span> {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">setState</span>({</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">displayed</span><span class="op">:</span> data</span>
@@ -139,12 +192,21 @@
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">loading</span><span class="op">:</span> <span class="op">!</span><span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">loading</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
-<p><code>onChange</code> : Cette fonction permet de modifier le pokémon actuellement affiché lorsqu’il est sélectionné. Cela permet à un composant enfant de la liste de pokémons de modifier un composant auquel il n’est pas directement connecté.</p>
-<p><code>addError</code> : En étant appelée, cette fonction permet d’ajouter une erreur à l’index pour l’afficher sur la page principale.</p>
-<p><code>toggleLoading</code> : Cette fonction active ou désactive le spinner de chargement en inversant son état.</p>
+<p><code>onChange</code> : Cette fonction permet de modifier le pokémon
+actuellement affiché lorsqu’il est sélectionné. Cela permet à un
+composant enfant de la liste de pokémons de modifier un composant auquel
+il n’est pas directement connecté.</p>
+<p><code>addError</code> : En étant appelée, cette fonction permet
+d’ajouter une erreur à l’index pour l’afficher sur la page
+principale.</p>
+<p><code>toggleLoading</code> : Cette fonction active ou désactive le
+spinner de chargement en inversant son état.</p>
 <h2 id="partie-3-le-rendu">Partie 3 : Le rendu</h2>
-<p>Vient enfin le rendu, la vue principale de l’application. Avec ce que nous avons défini auparavant, on peut enfin définir le composant du rendu aisément.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Render */</span></span>
+<p>Vient enfin le rendu, la vue principale de l’application. Avec ce que
+nous avons défini auparavant, on peut enfin définir le composant du
+rendu aisément.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Render */</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>() {</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> lookup <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;./images.js&#39;</span>)<span class="op">;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -192,9 +254,23 @@
 <span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;/</span>View<span class="op">&gt;</span></span>
 <span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>      )<span class="op">;</span></span>
 <span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
-<p>Ce composant est assez grand, mais au final assez simple. On définit tout d’abord une table de correspondance (celle générée par le script Ruby détaillé en début d’article), que l’on pourra passer aux deux composants pour charger statiquement les assets.</p>
-<p>Ensuite, on créé deux éléments de vue permettant d’afficher respectivement les erreurs ou bien le sacro-saint spinner de chargement. Enfin, on décide de cacher la vue en cas de chargement ou d’erreur. React-Native ignore les objets <code>null</code> au sein de la vue, ce qui est bien pratique pour pouvoir afficher de façon conditionnelle certains objets comme le spinner de chargement ou bien le message d’erreur.</p>
-<p>Quand à la vue en elle-même, on lui ajoute deux composants, <code>PokeList</code> et <code>PokeContent</code>, qui représentent respectivement la liste des pokémons ainsi que le pokémon actuellement affiché. Ils seront détaillés plus tard. Dans le prochain article, nous détaillerons un des composants les plus complexes de l’application, <code>PokeList</code>.</p>
+<p>Ce composant est assez grand, mais au final assez simple. On définit
+tout d’abord une table de correspondance (celle générée par le script
+Ruby détaillé en début d’article), que l’on pourra passer aux deux
+composants pour charger statiquement les assets.</p>
+<p>Ensuite, on créé deux éléments de vue permettant d’afficher
+respectivement les erreurs ou bien le sacro-saint spinner de chargement.
+Enfin, on décide de cacher la vue en cas de chargement ou d’erreur.
+React-Native ignore les objets <code>null</code> au sein de la vue, ce
+qui est bien pratique pour pouvoir afficher de façon conditionnelle
+certains objets comme le spinner de chargement ou bien le message
+d’erreur.</p>
+<p>Quand à la vue en elle-même, on lui ajoute deux composants,
+<code>PokeList</code> et <code>PokeContent</code>, qui représentent
+respectivement la liste des pokémons ainsi que le pokémon actuellement
+affiché. Ils seront détaillés plus tard. Dans le prochain article, nous
+détaillerons un des composants les plus complexes de l’application,
+<code>PokeList</code>.</p>
 
       </main>
 

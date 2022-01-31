@@ -4,9 +4,10 @@ const rimraf = require('rimraf')
 const { buildMarkdown, buildMarkdownFiles } = require('./markdown')
 const { postsPath, srcPostsPath } = require('../constants/paths')
 
-const buildPost = async (filename) => buildMarkdown(postsPath)(srcPostsPath, filename)
+const buildPost = async (filename) =>
+  buildMarkdown(postsPath)(srcPostsPath, filename)
 
-const buildPosts = async () => {
+const buildPosts = () => {
   rimraf.sync(postsPath)
   fs.mkdirSync(postsPath)
 
