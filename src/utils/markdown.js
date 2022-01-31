@@ -15,8 +15,8 @@ const buildMarkdown = (distPath) => (srcPath, filename) => new Promise((resolve,
         }
 
         const srcContents = fs.readFileSync(filePath, 'utf-8')
-        const match = srcContents.match(/^(?:-+?)\r?\ntitle: (.*?)\r?\n(?:-+?)/g)
-        if (!match) {
+        const match = srcContents.match(/^(?:-+?)\r?\ntitle: (.*?)\r?\n(?:-+?)/)
+        if (!match && !match[1]) {
           throw new Error('Cannot find title')
         }
 
