@@ -314,6 +314,11 @@ td.sourceCode { padding-left: 5px; }
     padding: 0 5% 3em 5%;
   }
 
+  /* Responsive content */
+  main#content > h2 {
+    font-size: 18px;
+  }
+
   /* Responsive page logo */
   #logo {
     margin: 0 auto;

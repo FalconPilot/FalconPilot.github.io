@@ -4,7 +4,7 @@ title: A propos
 
 Je m'appelle Raphaël, et je suis programmeur autodidacte. J'ai découvert la programmation
 vers fin 2015, grâce à l'aide de nombreuses personnes (et notamment, un grand merci à
-[xvw][https://github.com/xvw]). J'aime beaucoup les technologies fonctionnelles statiquement
+[xvw](https://github.com/xvw)). J'aime beaucoup les technologies fonctionnelles statiquement
 typées, OTP et la programmation web en général. J'ai aussi un petit coup de coeur pour la
 construction d'architecture de code, la modernité, et le fait, de manière générale, d'apporter
 des préceptes de technologies plutôt avant-gardistes dans des environnements mainstream pour
