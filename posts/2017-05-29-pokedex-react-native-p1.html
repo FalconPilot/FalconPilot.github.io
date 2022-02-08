@@ -23,9 +23,11 @@
 
   <!-- BODY -->
   <body>
-    <a href="/" title="Accueil" id="logo">
-      <img src="/images/FP_logo.png"/>
-    </a>
+    <div class="col">
+      <a href="/" title="Accueil" id="logo">
+        <img src="/images/FP_logo.png"/>
+      </a>
+    </div>
 
     <div id="page">
       <header id="header">
@@ -96,7 +98,7 @@
 <p>… Un script tout bête, disais-je :)</p>
 <h2 id="partie-1-le-constructeur">Partie 1 : Le constructeur</h2>
 <p>Nous allons commencer par le coeur de l’application : <a href="https://github.com/FalconPilot/react-pokedex/blob/master/src/index.js">l’index, la page principale</a>. La première fonction que nous allons analyser est le constructeur du composant.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Constructor */</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Constructor */</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span>(props) {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">super</span>(props)<span class="op">;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">state</span> <span class="op">=</span> {</span>
@@ -121,7 +123,7 @@
 </ul>
 <h2 id="partie-2-fonctions-utilitaires">Partie 2 : Fonctions utilitaires</h2>
 <p>Au sein du composant, plusieurs fonctions seront définies pour être utilisées au sein des composants enfants. Pourquoi donc ? La raison est assez simple : pour permettre aux composants enfants de modifier le state du composant parent. On doit définir, plus précisément, trois fonctions.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Changing displayed pokemon */</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Changing displayed pokemon */</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  onChange <span class="op">=</span> (data) <span class="kw">=&gt;</span> {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">setState</span>({</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">displayed</span><span class="op">:</span> data</span>
@@ -147,22 +149,22 @@
 <p><code>toggleLoading</code> : Cette fonction active ou désactive le spinner de chargement en inversant son état.</p>
 <h2 id="partie-3-le-rendu">Partie 3 : Le rendu</h2>
 <p>Vient enfin le rendu, la vue principale de l’application. Avec ce que nous avons défini auparavant, on peut enfin définir le composant du rendu aisément.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Render */</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Render */</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>() {</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> lookup <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;./images.js&#39;</span>)<span class="op">;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="co">/* Loading activity indicator */</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> indicator <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">loading</span> <span class="op">===</span> <span class="kw">true</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">?</span> <span class="op">&lt;</span>View style<span class="op">=</span>{styles<span class="op">.</span><span class="at">centeredView</span>}<span class="op">&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>ActivityIndicator<span class="op">/&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;/</span>View<span class="op">&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">? </span><span class="fu">&lt;View</span> <span class="ot">style</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">centeredView</span><span class="va">}</span><span class="fu">&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">&lt;ActivityIndicator/&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">&lt;/View&gt;</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span> <span class="kw">null</span><span class="op">;</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="co">/* Error display */</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> error <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">error</span> <span class="op">!==</span> <span class="kw">undefined</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">?</span> <span class="op">&lt;</span>View style<span class="op">=</span>{styles<span class="op">.</span><span class="at">centeredView</span>}<span class="op">&gt;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span><span class="bu">Text</span><span class="op">&gt;</span>{<span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">error</span>}<span class="op">&lt;/</span><span class="bu">Text</span><span class="op">&gt;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;/</span>View<span class="op">&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">? </span><span class="fu">&lt;View</span> <span class="ot">style</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">centeredView</span><span class="va">}</span><span class="fu">&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">&lt;Text&gt;</span><span class="va">{</span><span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">error</span><span class="va">}</span><span class="fu">&lt;/Text&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>          <span class="fu">&lt;/View&gt;</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span> <span class="kw">null</span></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      <span class="co">/* Middle styles */</span></span>
@@ -172,27 +174,27 @@
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="co">/* Rendering */</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>View style<span class="op">=</span>{styles<span class="op">.</span><span class="at">container</span>}<span class="op">&gt;</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span><span class="bu">Text</span> style<span class="op">=</span>{styles<span class="op">.</span><span class="at">header</span>}<span class="op">&gt;</span>Pokédex<span class="op">&lt;/</span><span class="bu">Text</span><span class="op">&gt;</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span>View style<span class="op">=</span>{styles<span class="op">.</span><span class="at">mainContent</span>}<span class="op">&gt;</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            {indicator}</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            {error}</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>View style<span class="op">=</span>{middleStyle}<span class="op">&gt;</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>              <span class="op">&lt;</span>Pokelist</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                lookup<span class="op">=</span>{lookup}</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                onChange<span class="op">=</span>{<span class="kw">this</span><span class="op">.</span><span class="at">onChange</span>}</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                addError<span class="op">=</span>{<span class="kw">this</span><span class="op">.</span><span class="at">addError</span>}</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>                toggleLoading<span class="op">=</span>{<span class="kw">this</span><span class="op">.</span><span class="at">toggleLoading</span>}</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                style<span class="op">=</span>{styles<span class="op">.</span><span class="at">pokelist</span>}</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>              <span class="op">/&gt;</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>              <span class="op">&lt;</span>Pokecontent</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                id<span class="op">=</span>{<span class="fu">GetId</span>(<span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">displayed</span>)}</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                lookup<span class="op">=</span>{lookup}</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                pokemon<span class="op">=</span>{<span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">displayed</span>}</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>              <span class="op">/&gt;</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;/</span>View<span class="op">&gt;</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;/</span>View<span class="op">&gt;</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;/</span>View<span class="op">&gt;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="fu">&lt;View</span> <span class="ot">style</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">container</span><span class="va">}</span><span class="fu">&gt;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>          <span class="fu">&lt;Text</span> <span class="ot">style</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">header</span><span class="va">}</span><span class="fu">&gt;</span>Pokédex<span class="fu">&lt;/Text&gt;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>          <span class="fu">&lt;View</span> <span class="ot">style</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">mainContent</span><span class="va">}</span><span class="fu">&gt;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            <span class="va">{</span>indicator<span class="va">}</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            <span class="va">{</span>error<span class="va">}</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>            <span class="fu">&lt;View</span> <span class="ot">style</span><span class="op">=</span><span class="va">{</span>middleStyle<span class="va">}</span><span class="fu">&gt;</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>              <span class="fu">&lt;Pokelist</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                <span class="ot">lookup</span><span class="op">=</span><span class="va">{</span>lookup<span class="va">}</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                <span class="ot">onChange</span><span class="op">=</span><span class="va">{</span><span class="kw">this</span><span class="op">.</span><span class="at">onChange</span><span class="va">}</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                <span class="ot">addError</span><span class="op">=</span><span class="va">{</span><span class="kw">this</span><span class="op">.</span><span class="at">addError</span><span class="va">}</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>                <span class="ot">toggleLoading</span><span class="op">=</span><span class="va">{</span><span class="kw">this</span><span class="op">.</span><span class="at">toggleLoading</span><span class="va">}</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                <span class="ot">style</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">pokelist</span><span class="va">}</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>              <span class="fu">/&gt;</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>              <span class="fu">&lt;Pokecontent</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                <span class="ot">id</span><span class="op">=</span><span class="va">{</span><span class="fu">GetId</span>(<span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">displayed</span>)<span class="va">}</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                <span class="ot">lookup</span><span class="op">=</span><span class="va">{</span>lookup<span class="va">}</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                <span class="ot">pokemon</span><span class="op">=</span><span class="va">{</span><span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">displayed</span><span class="va">}</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>              <span class="fu">/&gt;</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>            <span class="fu">&lt;/View&gt;</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>          <span class="fu">&lt;/View&gt;</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="fu">&lt;/View&gt;</span></span>
 <span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>      )<span class="op">;</span></span>
 <span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 <p>Ce composant est assez grand, mais au final assez simple. On définit tout d’abord une table de correspondance (celle générée par le script Ruby détaillé en début d’article), que l’on pourra passer aux deux composants pour charger statiquement les assets.</p>
@@ -203,5 +205,6 @@
 
       <footer id="footer"></footer>
     </div>
+    <div class="col"></div>
   </body>
 </html>

@@ -66,7 +66,7 @@ Seulement, vient un des points capitaux qui peut avantager Elm : toutes les erre
 
 La génération d'une vue est également très différente. En Elm, on optera pour une syntaxe proche du langage d'origine, tandis qu'avec React-Redux, on peut tout simplement utiliser JSX. Un exemple en code, d'abord en Elm...
 
-```haskell
+```elm
 view: Model -> Html Msg
 view model =
 	div [ id "content" ]
@@ -77,7 +77,7 @@ view model =
 
 Puis l'équivalent avec JSX
 
-```javascript
+```jsx
 render {
   return (
     <div id="content">

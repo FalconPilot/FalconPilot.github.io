@@ -23,9 +23,11 @@
 
   <!-- BODY -->
   <body>
-    <a href="/" title="Accueil" id="logo">
-      <img src="/images/FP_logo.png"/>
-    </a>
+    <div class="col">
+      <a href="/" title="Accueil" id="logo">
+        <img src="/images/FP_logo.png"/>
+      </a>
+    </div>
 
     <div id="page">
       <header id="header">
@@ -84,19 +86,19 @@
 <p>Seulement, vient un des points capitaux qui peut avantager Elm : toutes les erreurs d’un programme Elm seront annoncées à la compilation. Ainsi, avec Redux, envoyer un message invalide (ici, imaginons qu’un utilisateur envoie un message <code>'COUCOU'</code> à l’update, dans Elm, la compilation échouera pour notifier l’utilisateur de son erreur, dans Redux, il se contentera d’exécuter du code par défaut au runtime - dans notre exemple, renvoyer l’état non modifié). Cela ne condamne pas Redux pour autant, mais c’est une divergence importante pour comprendre les limitations éventuelles qu’un écosystème Javascript peut avoir lorsqu’il s’inspire d’une technologie statiquement typée. Pour autant, Redux n’est pas à jeter pour autant.</p>
 <h2 id="générer-une-vue-jsx-et-elm">Générer une vue : JSX et Elm</h2>
 <p>La génération d’une vue est également très différente. En Elm, on optera pour une syntaxe proche du langage d’origine, tandis qu’avec React-Redux, on peut tout simplement utiliser JSX. Un exemple en code, d’abord en Elm…</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>view<span class="op">:</span> <span class="dt">Model</span> <span class="ot">-&gt;</span> <span class="dt">Html</span> <span class="dt">Msg</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>view model <span class="ot">=</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode elm"><code class="sourceCode elm"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>: <span class="dt">Model</span> <span class="op">-&gt;</span> <span class="dt">Html</span> <span class="dt">Msg</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span> <span class="fu">model</span> <span class="op">=</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">div</span> [ <span class="fu">id</span> <span class="st">&quot;content&quot;</span> ]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        [ h1 [] [ model<span class="op">.</span>title ]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        , p [] [ <span class="st">&quot;I &lt;3 Elm&quot;</span> ]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        [ <span class="fu">h1</span> [] [ <span class="fu">model</span><span class="op">.</span><span class="fu">title</span> ]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">,</span> <span class="fu">p</span> [] [ <span class="st">&quot;I &lt;3 Elm&quot;</span> ]</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        ]</span></code></pre></div>
 <p>Puis l’équivalent avec JSX</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>render {</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>render {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div id<span class="op">=</span><span class="st">&quot;content&quot;</span><span class="op">&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>{<span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">title</span>}<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>I <span class="op">&lt;</span><span class="dv">3</span> Elm<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="ot">id</span><span class="op">=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;h1&gt;</span><span class="va">{</span><span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">title</span><span class="va">}</span><span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;p&gt;</span>I <span class="er">&lt;</span>3 Elm<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>On se rend compte que JSX permet d’avoir une syntaxe de markup plus proche de celle du HTML. Ici, on pourrait croire à une grande différence, mais en réalité, il s’agit du même fonctionnement : chaque balise est une fonction prenant une certaine quantité de paramètres. La différence principale vient de la méthodologie employée : avec JSX, on passe tous ses paramères de la même façon qu’en HTML. Avec Elm, on soumet deux listes à la fonction, la première représentant les attributs et la seconde les noeuds enfants de l’élément.</p>
@@ -132,5 +134,6 @@
 
       <footer id="footer"></footer>
     </div>
+    <div class="col"></div>
   </body>
 </html>

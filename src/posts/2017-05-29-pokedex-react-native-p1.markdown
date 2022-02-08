@@ -72,7 +72,7 @@ end
 
 Nous allons commencer par le coeur de l'application : [l'index, la page principale](https://github.com/FalconPilot/react-pokedex/blob/master/src/index.js). La première fonction que nous allons analyser est le constructeur du composant.
 
-```javascript
+```jsx
   /* Constructor */
   constructor(props) {
     super(props);
@@ -102,7 +102,7 @@ Ensuite, on définit deux constantes globales utiles au sein de l'application :
 
 Au sein du composant, plusieurs fonctions seront définies pour être utilisées au sein des composants enfants. Pourquoi donc ? La raison est assez simple : pour permettre aux composants enfants de modifier le state du composant parent. On doit définir, plus précisément, trois fonctions.
 
-```javascript
+```jsx
   /* Changing displayed pokemon */
   onChange = (data) => {
     this.setState({
@@ -136,7 +136,7 @@ Au sein du composant, plusieurs fonctions seront définies pour être utilisées
 
 Vient enfin le rendu, la vue principale de l'application. Avec ce que nous avons défini auparavant, on peut enfin définir le composant du rendu aisément.
 
-```javascript
+```jsx
   /* Render */
   render() {
       const lookup = require('./images.js');

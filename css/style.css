@@ -1,13 +1,4 @@
 /*
-**  CSS Variables
-*/
-
-:root {
-  --info-height: 1em;
-  --logo-size: 100px;
-}
-
-/*
 **  Global style
 */
 
@@ -20,11 +11,14 @@ body {
   color: #333;
 }
 
+body.darkmode {
+  color: #FFF;
+  background-color: #333;
+}
+
 div#page {
   flex: 1;
   min-height: 100vh;
-  padding-right: 100px; /* For older browsers */
-  padding-right: var(--logo-size);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -58,9 +52,6 @@ li { margin: 0.4em 0; }
 
 #logo {
   display: block;
-  height: 100px; /* For older browsers */
-  height: var(--logo-size);
-  max-width: 10%;
 }
 
 #logo > img { width: 100%; }
@@ -68,6 +59,10 @@ li { margin: 0.4em 0; }
 /*
 **  Structural classes
 */
+
+div.col {
+  width: 100px;
+}
 
 header, main, footer {
   width: 100%;
@@ -95,8 +90,6 @@ main {
 
 /* Footer */
 footer {
-  height: 2em; /* For older browsers */
-  height: calc(1em + 20px);
   font-size: 1em;
 }
 
@@ -145,7 +138,8 @@ pre {
 code {
   padding: 0 2px;
   box-sizing: border-box;
-  background-color: #EEE;
+  background-color: #333;
+  color: #FFF;
   border: 1px solid rgba(50, 50, 50, 0.5);
   border-radius: 2px;
 }
@@ -224,10 +218,7 @@ pre > code {
 
 .info {
   margin: 5px 0;
-  line-height: 1em; /* For older browsers */
-  line-height: var(--info-height); /* For older browsers */
-  line-height: calc(1em + 4px); /* For older browsers */
-  line-height: calc(var(--info-height) + 4px);
+  line-height: 1em;
   font-style: italic;
   text-align: right;
 }
@@ -236,8 +227,6 @@ pre > code {
   content: "ℹ";
   height: 1em; /* For older browsers */
   width: 1em; /* For older browsers */
-  height: var(--info-height);
-  width: var(--info-height);
   margin: 0 5px;
   padding: 2px;
   display: inline-flex;
@@ -275,18 +264,19 @@ td.lineNumbers {
 
 td.sourceCode { padding-left: 5px; }
 
-.sourceCode span.kw { color: #814387; font-weight: bold; }
-.sourceCode span.dt { color: #4070a0; }
-.sourceCode span.dv { color: #40a070; }
+.sourceCode span.cf { color: #eb81eb; font-weight: bold; }
+.sourceCode span.kw { color: #d162d1; font-weight: bold; }
+.sourceCode span.dt { color: #3aadca; }
+.sourceCode span.dv { color: #dad04a; }
 .sourceCode span.bn { color: #40a070; }
 .sourceCode span.fl { color: #40a070; }
 .sourceCode span.ch { color: #4070a0; }
-.sourceCode span.st { color: #007020; }
-.sourceCode span.co { color: #60a0b0; font-style: italic; }
-.sourceCode span.ot { color: #007020; }
+.sourceCode span.st { color: #c77f44; }
+.sourceCode span.co { color: #73888d; font-style: italic; }
+.sourceCode span.ot { color: #a5ecdd; }
 .sourceCode span.al { color: red; font-weight: bold; }
-.sourceCode span.fu { color: #06287e; }
-.sourceCode span.re { }
+.sourceCode span.fu { color: #3ed47d; }
+.sourceCode span.va { color: #30c250; font-weight: bold; }
 .sourceCode span.er { color: red; font-weight: bold; }
 
 /*
@@ -295,10 +285,12 @@ td.sourceCode { padding-left: 5px; }
 
 @media (max-width:800px) {
 
-  /* Responsive body */
   body { flex-direction: column; }
 
-  /* Responsive header */
+  div.col {
+    width: 100%;
+  }
+
   header {
     position: fixed;
     left: 0;
@@ -308,24 +300,20 @@ td.sourceCode { padding-left: 5px; }
     z-index: 1;
   }
 
-  /* Responsive main page */
   div#page {
     min-height: auto;
     padding: 0 5% 3em 5%;
   }
 
-  /* Responsive content */
   main#content > h2 {
     font-size: 18px;
   }
 
-  /* Responsive page logo */
   #logo {
     margin: 0 auto;
     max-width: 100px;
   }
 
-  /* Responsive posts list */
   .posts-list > li > a {
     flex-direction: column;
     align-items: flex-start;
